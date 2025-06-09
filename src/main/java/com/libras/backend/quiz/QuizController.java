@@ -29,6 +29,15 @@ public class QuizController {
     }
 
     /**
+     * GET /quiz/perguntas
+     * Alias para {@link #getPerguntas()} utilizado nos testes de integração.
+     */
+    @GetMapping("/perguntas")
+    public ResponseEntity<List<PerguntaDTO>> getPerguntasAlias() {
+        return getPerguntas();
+    }
+
+    /**
      * POST /quiz/submit
      * Recebe um JSON array de RespostaQuizDTO e devolve o ResultadoQuizDTO.
      */
@@ -37,5 +46,15 @@ public class QuizController {
             @RequestBody List<RespostaQuizDTO> respostas) {
         ResultadoQuizDTO resultado = quizService.calculaResultado(respostas);
         return ResponseEntity.ok(resultado);
+    }
+
+    /**
+     * POST /quiz/respostas
+     * Alias para {@link #submitRespostas(List)} utilizado nos testes.
+     */
+    @PostMapping("/respostas")
+    public ResponseEntity<ResultadoQuizDTO> submitRespostasAlias(
+            @RequestBody List<RespostaQuizDTO> respostas) {
+        return submitRespostas(respostas);
     }
 }
