@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
 
 @Configuration
 public class QuizDataInitializer {
@@ -15,8 +14,10 @@ public class QuizDataInitializer {
     @Bean
     public CommandLineRunner populaPerguntas(PerguntaRepository perguntaRepository) {
         return args -> {
-            // Apenas execute uma vez: limpe tudo e recrie
-            perguntaRepository.deleteAll();
+            // Insere dados de exemplo somente quando o repositório estiver vazio
+            if (perguntaRepository.count() != 0) {
+                return;
+            }
 
             // Exemplo de Pergunta 1
             Pergunta p1 = new Pergunta();
