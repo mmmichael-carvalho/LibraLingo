@@ -7,8 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
 @Configuration
 public class QuizDataInitializer {
 
@@ -18,7 +16,6 @@ public class QuizDataInitializer {
             // Apenas execute uma vez: limpe tudo e recrie
             perguntaRepository.deleteAll();
 
-            // Exemplo de Pergunta 1
             Pergunta p1 = new Pergunta();
             p1.setSinalUrl("https://dominio.com/sinal1.jpg");
             p1.setIndiceCorreto(0);
@@ -32,7 +29,6 @@ public class QuizDataInitializer {
             perguntaRepository.save(p1);
 
 
-            // Exemplo de Pergunta 2
             Pergunta p2 = new Pergunta();
             p2.setSinalUrl("https://dominio.com/sinal2.jpg");
             p2.setIndiceCorreto(1);

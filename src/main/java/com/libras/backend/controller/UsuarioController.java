@@ -16,22 +16,19 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // ===== 1) LISTAR TODOS =====
-    @GetMapping
+    @GetMapping     // ===== 1) LISTAR TODOS =====
     public List<Usuario> listar() {
         return usuarioService.listarTodos();
     }
 
-    // ===== 2) BUSCAR POR ID =====
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")     // ===== 2) BUSCAR POR ID =====
     public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
         return usuarioService.buscarPorId(id)
                 .map(ResponseEntity::ok)               // Se existir, retorna 200 + body
                 .orElse(ResponseEntity.notFound().build()); // Se não existir, retorna 404
     }
 
-    // ===== 3) CRIAR NOVO USUÁRIO =====
-    @PostMapping
+    @PostMapping     // ===== 3) CRIAR NOVO USUÁRIO =====
     public ResponseEntity<Usuario> criar(@RequestBody Usuario usuario) {
         Usuario salvo = usuarioService.salvar(usuario);
         // Cria a URI “/usuarios/{id}” para ser colocada no header “Location”
@@ -39,14 +36,12 @@ public class UsuarioController {
         return ResponseEntity.created(uri).body(salvo);
     }
 
-    // ===== 4) ATUALIZAR USUÁRIO EXISTENTE =====
-    @PutMapping("/{id}")
+    @PutMapping("/{id}")     // ===== 4) ATUALIZAR USUÁRIO EXISTENTE =====
     public ResponseEntity<Usuario> atualizar(
             @PathVariable Long id,
             @RequestBody Usuario usuarioAtualizado
     ) {
-        // Primeiro, tenta buscar o usuário existente
-        return usuarioService.buscarPorId(id)
+        return usuarioService.buscarPorId(id)         // Primeiro, tenta buscar o usuário existente
                 .map(usuarioExistente -> {
                     // Se existir, copia os campos que podem ser alterados
                     usuarioExistente.setNome(usuarioAtualizado.getNome());
@@ -58,8 +53,7 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build()); // Se não existir, retorna 404
     }
 
-    // ===== 5) REMOVER USUÁRIO =====
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")     // ===== 5) REMOVER USUÁRIO =====
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         // Opcional: poderíamos verificar se existe antes de chamar deletar()
         boolean existe = usuarioService.buscarPorId(id).isPresent();

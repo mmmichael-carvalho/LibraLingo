@@ -25,7 +25,8 @@ public class Pergunta {
     @Column(nullable = false)
     private Integer indiceCorreto;
 
-    public Pergunta() { }
+    public Pergunta() {
+    }
 
     public Pergunta(String sinalUrl, List<Opcao> opcoes, Integer indiceCorreto) {
         this.sinalUrl = sinalUrl;
@@ -38,14 +39,26 @@ public class Pergunta {
         }
     }
 
-    // --- GETTERS e SETTERS ---
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getSinalUrl() { return sinalUrl; }
-    public void setSinalUrl(String sinalUrl) { this.sinalUrl = sinalUrl; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public List<Opcao> getOpcoes() { return opcoes; }
+    public String getSinalUrl() {
+        return sinalUrl;
+    }
+
+    public void setSinalUrl(String sinalUrl) {
+        this.sinalUrl = sinalUrl;
+    }
+
+    public List<Opcao> getOpcoes() {
+        return opcoes;
+    }
+
     public void setOpcoes(List<Opcao> opcoes) {
         this.opcoes = opcoes;
         if (opcoes != null) {
@@ -55,6 +68,11 @@ public class Pergunta {
         }
     }
 
-    public Integer getIndiceCorreto() { return indiceCorreto; }
-    public void setIndiceCorreto(Integer indiceCorreto) { this.indiceCorreto = indiceCorreto; }
+    public Integer getIndiceCorreto() {
+        return indiceCorreto;
+    }
+
+    public void setIndiceCorreto(Integer indiceCorreto) {
+        this.indiceCorreto = indiceCorreto;
+    }
 }

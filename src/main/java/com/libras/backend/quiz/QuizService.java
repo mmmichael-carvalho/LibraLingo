@@ -1,22 +1,18 @@
 package com.libras.backend.quiz;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.libras.backend.model.quiz.Pergunta;
-import com.libras.backend.repository.quiz.PerguntaRepository;
 import com.libras.backend.quiz.dto.PerguntaDTO;
 import com.libras.backend.quiz.dto.RespostaQuizDTO;
 import com.libras.backend.quiz.dto.ResultadoQuizDTO;
-import com.libras.backend.model.quiz.Opcao;
-
+import com.libras.backend.repository.quiz.PerguntaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class QuizService {
-
     @Autowired
     private PerguntaRepository perguntaRepository;
 
@@ -38,7 +34,6 @@ public class QuizService {
                 .stream()
                 .map(o -> o.getTexto())
                 .collect(Collectors.toList());
-
         return new PerguntaDTO(
                 p.getId(),
                 p.getSinalUrl(),
@@ -53,7 +48,6 @@ public class QuizService {
      */
     public ResultadoQuizDTO calculaResultado(List<RespostaQuizDTO> respostas) {
         int acertos = 0;
-
         for (RespostaQuizDTO r : respostas) {
             Long perguntaId = r.getPerguntaId();
             Integer opcaoEscolhida = r.getOpcaoEscolhida();
@@ -65,7 +59,6 @@ public class QuizService {
                 acertos++;
             }
         }
-
         String mensagem = String.format("Você acertou %d de %d!", acertos, respostas.size());
         return new ResultadoQuizDTO(acertos, mensagem);
     }
