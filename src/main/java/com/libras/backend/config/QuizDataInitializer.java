@@ -32,7 +32,7 @@ public class QuizDataInitializer {
             Pergunta p2 = new Pergunta();
             p2.setSinalUrl("https://dominio.com/sinal2.jpg");
             p2.setIndiceCorreto(1);
-            p2.getOpcoes().add(new Opcao("Opção A"));
+            p2.getOpcoes().add(new Opcao("Opçãoo A"));
             p2.getOpcoes().add(new Opcao("Opção B"));
             p2.getOpcoes().add(new Opcao("Opção C"));
             p2.getOpcoes().add(new Opcao("Opção D"));
