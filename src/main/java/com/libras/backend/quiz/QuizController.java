@@ -39,7 +39,7 @@ public class QuizController {
 
     /**
      * POST /quiz/submit
-     * Recebe um JSON array de RespostaQuizDTO e devolve o ResultadoQuizDTO.
+     * Recebe um JSON array de RespostaQuizDTO e devolve o ResultadoQuizDTO
      */
     @PostMapping("/submit")
     public ResponseEntity<ResultadoQuizDTO> submitRespostas(
