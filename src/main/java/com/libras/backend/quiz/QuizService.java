@@ -59,7 +59,7 @@ public class QuizService {
                 acertos++;
             }
         }
-        String mensagem = String.format("Você acertou %d de %d!", acertos, respostas.size());
+        String mensagem = String.format("Voce acertou %d de %d!", acertos, respostas.size());
         return new ResultadoQuizDTO(acertos, mensagem);
     }
 }
