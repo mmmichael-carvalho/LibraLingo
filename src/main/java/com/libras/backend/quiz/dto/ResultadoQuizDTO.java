@@ -1,5 +1,6 @@
 package com.libras.backend.quiz.dto;
 
+
 public class ResultadoQuizDTO {
     private int pontuacao;
     private String mensagem;

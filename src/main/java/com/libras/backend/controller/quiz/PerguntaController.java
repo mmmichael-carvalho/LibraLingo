@@ -1,4 +1,5 @@
 package com.libras.backend.controller.quiz;
+
 import com.libras.backend.model.quiz.Pergunta;
 import com.libras.backend.repository.quiz.PerguntaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,7 @@ import java.util.Optional;
 public class PerguntaController {
     @Autowired
     private PerguntaRepository perguntaRepository;
-
-    @GetMapping
+Mapping
     public List<Pergunta> listarTodas() {
         return perguntaRepository.findAll();
     }
@@ -44,6 +44,7 @@ public class PerguntaController {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         if (!perguntaRepository.existsById(id)) {
