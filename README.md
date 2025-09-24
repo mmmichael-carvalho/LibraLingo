@@ -2,7 +2,7 @@
 
 Uma aplicação educacional para usar as ferramentas que venho estudando atualmente.
 
-Sobre o Projeto
+Sobre o Projeto:
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
 
