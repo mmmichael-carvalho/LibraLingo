@@ -5,7 +5,7 @@ Uma aplicação educacional para usar as ferramentas que venho estudando atualme
 Sobre o Projeto:
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
-
+Ferramentas usadas:
 **Backend**
 - Java 21  
 - Spring Boot 3.1.8  
@@ -17,14 +17,14 @@ LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
 ### Como Executar
 
-### Backend
+**Backend**
 
 cd backend |
 mvn spring-boot:run
 
 Rodará em http://localhost:8080
 
-### Frontend
+**Backend**
 cd frontend |
 npm install |
 npm start
