@@ -17,8 +17,8 @@ LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
 ## Como Executar
 
-### Backend
-
+## Backend
+``bash
 cd backend
 mvn spring-boot:run
 
