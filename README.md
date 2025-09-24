@@ -15,16 +15,16 @@ LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 - Angular 20  
 - TypeScript
 
-# Como Executar
+### Como Executar
 
-# Backend
+### Backend
 
 cd backend |
 mvn spring-boot:run
 
 Rodará em http://localhost:8080
 
-
+### Frontend
 cd frontend |
 npm install |
 npm start
