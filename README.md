@@ -6,13 +6,14 @@ Sobre o Projeto:
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
 Ferramentas usadas:
+
 **Backend**
 - Java 21  
-- Spring Boot 3.1.8  
-- H2 Database
+- Spring Boot
+
 
  **Frontend**
-- Angular 20  
+- Angular 
 - TypeScript
 
 ### Como Executar
