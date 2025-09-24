@@ -1,4 +1,4 @@
-﻿LibraLingo 🤟
+### ﻿LibraLingo 🤟
 
 Uma aplicação educacional para usar as ferramentas que venho estudando atualmente.
 
@@ -10,15 +10,15 @@ Tecnologias
 - **Backend**: Java 21 e Spring Boot
 - **Frontend**: Angular 20, TypeScript
 
-## 💻 Como Executar
-### Backend
+##Como Executar
+## Backend
 
 cd backend
 ./mvnw spring-boot:run
 
 Rodará em http://localhost:8080
 
-### Frontend
+## Frontend
 
 cd frontend
 npm install
