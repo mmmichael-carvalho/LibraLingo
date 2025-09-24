@@ -31,7 +31,7 @@ npm start
 
 Rodará em http://localhost:4200
 
-Aviso
+
 Projeto desenvolvido com fins educacionais por não-profissional em LIBRAS.
 Para aprendizado oficial, consulte profissionais qualificados.
 
