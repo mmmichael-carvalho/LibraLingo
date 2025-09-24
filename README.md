@@ -20,15 +20,18 @@ Ferramentas usadas:
 
 **Backend**
 
-cd backend |
+cd backend 
+
 mvn spring-boot:run
 
 Rodará em http://localhost:8080
 
 **Frontend**
 
-cd frontend |
-npm install |
+cd frontend 
+
+npm install 
+
 npm start
 
 Rodará em http://localhost:4200
