@@ -6,19 +6,25 @@ Sobre o Projeto
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
 
-Tecnologias
-- **Backend**: Java 21 e Spring Boot
-- **Frontend**: Angular 20, TypeScript
+**Backend**
+- Java 21  
+- Spring Boot 3.1.8  
+- H2 Database
+
+- **Frontend**
+- Angular 20  
+- TypeScript
 
 ##Como Executar
 ## Backend
 
+### Backend
+
 cd backend
-./mvnw spring-boot:run
+mvn spring-boot:run
 
 Rodará em http://localhost:8080
 
-## Frontend
 
 cd frontend
 npm install
