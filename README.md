@@ -11,12 +11,11 @@ LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 - Spring Boot 3.1.8  
 - H2 Database
 
-- **Frontend**
+ **Frontend**
 - Angular 20  
 - TypeScript
 
 ##Como Executar
-## Backend
 
 ### Backend
 
