@@ -1,0 +1,148 @@
+<!-- src/app/components/level-list/level-list.component.html -->
+<div class="main-container">
+  <div class="content-wrapper">
+
+    <!-- Lado Esquerdo - Níveis -->
+    <div class="levels-section">
+      <header class="app-header">
+        <h1>LibraLingo</h1>
+        <p class="subtitle">Escolha seu nível:</p>
+      </header>
+
+      <div class="levels-stack">
+        <div *ngFor="let nivel of niveis; let i = index"
+             class="level-item"
+             [class.available]="nivel.disponivel && !nivel.emBreve"
+             [class.locked]="!nivel.disponivel || nivel.emBreve"
+             [class.completed]="nivel.completado"
+             [style.animation-delay]="(i * 0.1) + 's'">
+
+          <div class="level-content">
+            <div class="level-icon">
+              <span class="emoji">{{ nivel.emoji }}</span>
+            </div>
+
+            <div class="level-info">
+              <h3>{{ nivel.nome }}</h3>
+              <p>{{ nivel.descricao }}</p>
+
+              <div class="level-status">
+                <div *ngIf="nivel.completado && nivel.pontuacao !== undefined" class="completion-info">
+                  <span class="score">{{ nivel.pontuacao }}/{{ nivel.totalPerguntas }}</span>
+                  <span class="percentage">({{ getPercentual(nivel.pontuacao!, nivel.totalPerguntas) }}%)</span>
+                  <span class="status-icon" [innerHTML]="getStatusIcon(nivel.pontuacao!, nivel.totalPerguntas)"></span>
+                </div>
+
+                <div *ngIf="!nivel.completado && nivel.disponivel && !nivel.emBreve" class="level-stats">
+                  <span class="questions-count">{{ nivel.totalPerguntas }} perguntas</span>
+                </div>
+
+                <div *ngIf="!nivel.disponivel && !nivel.emBreve" class="locked-message">
+                  <span>Complete o nível anterior com 4+ acertos</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="level-action">
+              <button
+                *ngIf="nivel.disponivel && !nivel.emBreve"
+                class="start-btn"
+                [class.replay]="nivel.completado"
+                [routerLink]="['/quiz']"
+                [queryParams]="{level: nivel.numero}">
+                {{ nivel.completado ? 'Jogar novamente' : 'Começar' }}
+              </button>
+
+              <button
+                *ngIf="!nivel.disponivel && !nivel.emBreve"
+                class="locked-btn"
+                disabled>
+                Bloqueado
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lado Direito - Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+
+        <!-- Logo -->
+        <div class="libras-demo">
+          <div class="logo-container">
+            <div class="logo-circle">
+              <span class="logo-hands">🤟</span>
+            </div>
+            <div class="logo-text">LibraLingo</div>
+          </div>
+        </div>
+
+        <div class="hero-text">
+
+          <p class="intro-text">
+            sinais básicos em quizzes rápidos
+          </p>
+
+          <!-- Cards informativos -->
+          <div class="info-cards">
+            <div class="info-card"
+                 [class.expanded]="expandedCard === 0"
+                 (click)="toggleCard(0)">
+              <div class="card-header">
+                <span class="card-icon">⚖️</span>
+                <span class="card-title">Legislação Brasileira</span>
+                <span class="card-arrow">{{ expandedCard === 0 ? '▼' : '▶' }}</span>
+              </div>
+              <div class="card-content" [class.open]="expandedCard === 0">
+                <p>Libras é uma língua oficial no Brasil desde 2002 (Lei nº 10.436) e regulamentada em 2005.</p>
+              </div>
+            </div>
+
+            <div class="info-card"
+                 [class.expanded]="expandedCard === 1"
+                 (click)="toggleCard(1)">
+              <div class="card-header">
+                <span class="card-icon">🌍</span>
+                <span class="card-title">língua de sinais pelo Mundo</span>
+                <span class="card-arrow">{{ expandedCard === 1 ? '▼' : '▶' }}</span>
+              </div>
+              <div class="card-content" [class.open]="expandedCard === 1">
+                <p>A língua de sinais não é universal. Cada país possui sua própria língua de sinais
+                  com gramática, vocabulário e expressões culturais únicas. Mesmo países que falam português (como Portugal, Brasil e Moçambique)
+                  têm línguas de sinais diferentes. A Libras é específica
+                  do Brasil e é diferente da ASL (americana) ou LSF (francesa).</p>
+              </div>
+            </div>
+
+            <div class="info-card"
+                 [class.expanded]="expandedCard === 2"
+                 (click)="toggleCard(2)">
+              <div class="card-header">
+                <span class="card-icon">💬</span>
+                <span class="card-title">Importância Social</span>
+                <span class="card-arrow">{{ expandedCard === 2 ? '▼' : '▶' }}</span>
+              </div>
+              <div class="card-content" [class.open]="expandedCard === 2">
+                <p>O Brasil tem cerca de 10 milhões de pessoas com deficiência auditiva, e estima-se que mais de 2 milhões sejam usuários de Libras no dia a dia .
+                  Aprender Libras quebra barreiras de comunicação e promove a inclusão real
+                  da comunidade surda.</p>
+              </div>
+            </div>
+
+            <div class="disclaimer">
+              <div class="disclaimer-content">
+                  <strong>Aviso:</strong> Este projeto foi desenvolvido por uma pessoa não profissional em LIBRAS.
+                  O conteúdo pode conter imprecisões. Para aprendizado oficial, consulte profissionais qualificados.
+                </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

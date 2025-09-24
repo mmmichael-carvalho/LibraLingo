@@ -1,0 +1,140 @@
+<!-- src/app/components/quiz-list/quiz-list.component.html -->
+<div class="quiz-container">
+  <!-- Header com progresso -->
+  <header class="quiz-header">
+    <div class="header-content">
+      <button class="back-btn" (click)="voltarNiveis()">
+        <span>←</span> Voltar
+      </button>
+
+      <div class="progress-info">
+        <h1>LibraLingo - Nível {{ level }}</h1>
+        <span class="progress-text">
+          {{ currentQuestionIndex + 1 }} de {{ perguntas.length }}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>{{ currentQuestionIndex === 0 ? 'Carregando perguntas...' : 'Enviando respostas...' }}</p>
+  </div>
+
+  <!-- Erro -->
+  <div *ngIf="erro" class="error">
+    <div class="error-icon">⚠️</div>
+    <p>{{ erro }}</p>
+    <button (click)="carregarPerguntas()" class="retry-btn">Tentar Novamente</button>
+  </div>
+
+  <!-- Quiz - Uma pergunta por vez -->
+  <div *ngIf="!loading && !erro && currentQuestion" class="quiz-content">
+    <div class="question-container">
+
+      <!-- Pergunta: Imagem para Texto -->
+      <div *ngIf="currentQuestion.tipo === 'IMAGEM_PARA_TEXTO'" class="question-card img-to-text">
+
+        <!-- Texto da pergunta ANTES das imagens -->
+        <div class="question-header">
+          <h2 *ngIf="currentQuestion.prompt.length === 1">Qual o significado deste sinal?</h2>
+          <h2 *ngIf="currentQuestion.prompt.length > 1">Qual o significado dessa sequência de sinais?</h2>
+        </div>
+
+        <!-- Container das imagens -->
+        <div class="question-images" [class.multiple-images]="currentQuestion.prompt.length > 1">
+          <div *ngFor="let imagemUrl of currentQuestion.prompt; let i = index" class="image-container">
+
+            <!-- Número indicador apenas para múltiplas imagens -->
+            <div *ngIf="currentQuestion.prompt.length > 1" class="image-number">{{ i + 1 }}</div>
+
+            <img [src]="imagemUrl"
+                 [alt]="'Sinal em Libras - Imagem ' + (i + 1)"
+                 class="libras-image"
+                 (error)="onImageError($event, imagemUrl)">
+          </div>
+        </div>
+
+        <!-- Opções de resposta -->
+        <div class="options-grid">
+          <label *ngFor="let opcao of currentQuestion.opcoes; let i = index"
+                 class="option-card"
+                 [class.selected]="selectedOption === i">
+            <input type="radio"
+                   [name]="'question_' + currentQuestionIndex"
+                   [value]="i"
+                   [checked]="selectedOption === i"
+                   (change)="selectOption(i)">
+            <div class="option-content">
+              <span class="option-letter">{{ getOptionLetter(i) }}</span>
+              <span class="option-text">{{ opcao.texto }}</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pergunta: Texto para Imagem -->
+      <div *ngIf="currentQuestion.tipo === 'TEXTO_PARA_IMAGEM'" class="question-card text-to-img">
+        <div class="question-text">
+          <h2>Qual imagem representa:</h2>
+          <div class="target-word">{{ currentQuestion.prompt[0] }}</div>
+        </div>
+
+        <div class="image-options-grid">
+          <label *ngFor="let opcao of currentQuestion.opcoes; let i = index"
+                 class="image-option-card"
+                 [class.selected]="selectedOption === i">
+            <input type="radio"
+                   [name]="'question_' + currentQuestionIndex"
+                   [value]="i"
+                   [checked]="selectedOption === i"
+                   (change)="selectOption(i)">
+            <div class="image-content">
+              <span class="option-letter">{{ getOptionLetter(i) }}</span>
+              <img [src]="opcao.imagemUrl"
+                   alt="Opção {{ getOptionLetter(i) }}"
+                   class="option-image">
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação -->
+  <div *ngIf="!loading && !erro && currentQuestion" class="navigation">
+    <div class="navigation-container">
+      <button class="nav-btn secondary"
+              (click)="previousQuestion()"
+              [disabled]="currentQuestionIndex === 0">
+        ← Anterior
+      </button>
+
+      <div class="nav-center">
+        <div class="question-dots">
+        <span *ngFor="let pergunta of perguntas; let i = index"
+              class="dot"
+              [class.current]="i === currentQuestionIndex"
+              [class.answered]="respostas[i].opcaoEscolhida !== null">
+        </span>
+        </div>
+      </div>
+
+      <button class="nav-btn primary"
+              (click)="nextQuestion()"
+              [disabled]="!isAnswered">
+        {{ isLastQuestion ? 'Finalizar' : 'Próxima' }} →
+      </button>
+    </div>
+  </div>
+
+  <!-- Sem perguntas -->
+  <div *ngIf="!loading && !erro && perguntas.length === 0" class="no-questions">
+    <div class="empty-icon">📚</div>
+    <p>Nenhuma pergunta disponível para este nível.</p>
+    <button (click)="voltarNiveis()" class="retry-btn">
+      Voltar aos Níveis
+    </button>
+  </div>
+</div>
