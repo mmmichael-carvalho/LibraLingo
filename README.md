@@ -5,40 +5,46 @@ Uma aplicação educacional para usar as ferramentas que venho estudando atualme
 Sobre o Projeto:
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
-Ferramentas usadas:
+### Ferramentas usadas:
 
-**Backend**
 - Java 21  
 - Spring Boot
 
+- TypeScript 
+- Angulas
+---
+### *Como Executar:*
 
- **Frontend**
-- Angular 
-- TypeScript
+### *Backend*
 
-### Como Executar
-
-**Backend**
-
-cd backend 
-
+Entre na pasta do Backend
+```bash
+cd libralingo/backend
+```
+Execute
+```bash
 mvn spring-boot:run
+```
+### Rodará em http://localhost:8080
+---
 
-Rodará em http://localhost:8080
+### *Frontend*
 
-**Frontend**
+### Entre na pasta do frontend
+```bash
+cd libralingo/frontend
+```
+### Instale as dependências
+```bash
+npm install
+```
 
-cd frontend 
-
-npm install 
-
+### Execute em modo de desenvolvimento
+```bash
 npm start
+```
+### A aplicação estará disponível em http://localhost:4200
 
-Rodará em http://localhost:4200
-
-
-Projeto desenvolvido com fins educacionais por não-profissional em LIBRAS.
-Para aprendizado oficial, consulte profissionais qualificados.
 
 <img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/7c8b7b87-b532-454d-91e4-6b860f19fb72" />
 
@@ -46,6 +52,8 @@ Para aprendizado oficial, consulte profissionais qualificados.
 
 <img width="1919" height="942" alt="image" src="https://github.com/user-attachments/assets/be8bc39d-f399-406f-9ad3-530b1fb6ac0b" />
 
+*Projeto desenvolvido com fins educacionais por não-profissional em LIBRAS.
+Para aprendizado oficial, consulte profissionais qualificados.*
 
 
 
