@@ -11,7 +11,7 @@ LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 - Spring Boot
 
 - TypeScript 
-- Angulas
+- Angular
 ---
 ### *Como Executar:*
 
