@@ -21,7 +21,7 @@ export class QuizService {
     }
   private baseUrl = '/api/quiz';
 
-  constructor(private http: HttpClient) {}
+//   constructor(private http: HttpClient) {}
 
   getQuestoesPorNivel(level: number): Observable<QuestaoDTO[]> {
     return this.http.get<QuestaoDTO[]>(`${this.baseUrl}/levels/${level}/questions`);
