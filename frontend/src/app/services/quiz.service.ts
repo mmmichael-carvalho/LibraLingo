@@ -1,5 +1,6 @@
-// src/app/services/quiz.service.ts
 
+import { environment } from '../environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,16 +12,22 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
+
+   private apiUrl = environment.apiUrl;
+
+    constructor(private http: HttpClient) {}
+
+    getQuizzes() {
+      return this.http.get(`${this.apiUrl}/quizzes`);
+    }
   private baseUrl = '/api/quiz';
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Corrigido: usar endpoint por nível
   getQuestoesPorNivel(level: number): Observable<QuestaoDTO[]> {
     return this.http.get<QuestaoDTO[]>(`${this.baseUrl}/levels/${level}/questions`);
   }
 
-  // ✅ Manter endpoint geral para debug
   getTodasPerguntas(): Observable<QuestaoDTO[]> {
     return this.http.get<QuestaoDTO[]>(`${this.baseUrl}/perguntas`);
   }
