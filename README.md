@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 ### ﻿LibraLingo 🤟
+=======
+﻿### ﻿LibraLingo 🤟
+>>>>>>> c08e41c (readme.md)
 
 Uma aplicação educacional para usar as ferramentas que venho estudando atualmente.
 
 Sobre o Projeto:
 LibraLingo oferece uma forma simples e direta sobre libras com quizes praticos.
 
+<<<<<<< HEAD
 ### Ferramentas usadas:
 
 - Java 21  
@@ -57,3 +62,39 @@ Para aprendizado oficial, consulte profissionais qualificados.*
 
 
 
+=======
+Ferramentas usadas:
+
+**Backend**
+- Java 21  
+- Spring Boot
+
+
+ **Frontend**
+- Angular 
+- TypeScript
+
+### Como Executar
+
+**Backend**
+
+cd backend 
+
+mvn spring-boot:run
+
+Rodará em http://localhost:8080
+
+**Frontend**
+
+cd frontend 
+
+npm install 
+
+npm start
+
+Rodará em http://localhost:4200
+
+
+Projeto desenvolvido com fins educacionais por não-profissional em LIBRAS.
+Para aprendizado oficial, consulte profissionais qualificados.
+>>>>>>> c08e41c (readme.md)
