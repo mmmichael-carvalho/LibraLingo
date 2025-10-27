@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
-  "outputDirectory": "frontend/dist/frontend-libras/browser",
-  "framework": null,
-  "installCommand": "npm install --prefix frontend --legacy-peer-deps"
-}
