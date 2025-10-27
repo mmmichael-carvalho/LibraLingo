@@ -16,9 +16,10 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.setAllowedOrigins(Arrays.asList(
-                "https://libralingoo.vercel.app",
-                "http://localhost:4200"
-        ));
+                "https://libralingo-web.vercel.app",
+                "https://*.vercel.app",
+                "https://libralingoo-ds7iq4inn-michael-carvalhos-projects.vercel.app/"
+                ));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
