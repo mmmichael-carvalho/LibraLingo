@@ -1,4 +1,3 @@
-// src/app/components/quiz-list/quiz-list.component.ts - CORRIGIDO
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -94,7 +93,7 @@ export class QuizListComponent implements OnInit, OnDestroy {
         console.error('Erro ao carregar perguntas:', error);
 
         if (error.status === 0) {
-          this.erro = 'Não foi possível conectar ao servidor. Verifique se o backend está rodando na porta 8080.';
+          this.erro = 'Não foi possível conectar ao servidor.';
         } else if (error.status === 404) {
           this.erro = `Nível ${this.level} não encontrado no servidor.`;
         } else {

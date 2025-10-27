@@ -1,4 +1,3 @@
-// src/app/components/level-list/level-list.component.ts - CORRIGIDO
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
