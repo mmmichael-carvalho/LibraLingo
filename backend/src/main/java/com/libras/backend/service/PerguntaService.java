@@ -22,8 +22,6 @@ public class PerguntaService {
                 .map(this::converterParaDTO)
                 .toList();
     }
-
-    // ✅ MÉTODO SIMPLIFICADO - SEM OptionDTO
     private QuestaoDTO converterParaDTO(Pergunta p) {
         // Simplificar parsing do prompt
         List<String> promptList = p.getPrompt() != null
@@ -34,7 +32,7 @@ public class PerguntaService {
                 p.getId(),
                 p.getTipo(),
                 promptList,
-                p.getOpcoes(), // ✅ USAR DIRETAMENTE A LISTA DE OPCOES DA ENTIDADE
+                p.getOpcoes(),
                 p.getIndiceCorreto()
         );
     }
