@@ -17,9 +17,11 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(Arrays.asList(
                 "https://libralingo-web.vercel.app",
-                "https://*.vercel.app",
-                "https://libralingoo-ds7iq4inn-michael-carvalhos-projects.vercel.app/"
-                ));
+                "https://libralingo.vercel.app",
+                "https://libralingo-git-main-michael-carvalhos-projects.vercel.app",
+                "https://libralingo-3n5hnp4ewo-michael-carvalhos-projects.vercel.app",
+                "https://*.vercel.app" // Wildcard para todos os deploys do Vercel
+        ));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
