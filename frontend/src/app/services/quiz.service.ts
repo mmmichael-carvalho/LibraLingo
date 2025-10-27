@@ -1,6 +1,5 @@
-
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/HttpClient';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
@@ -12,28 +11,25 @@ import {
 @Injectable({ providedIn: 'root' })
 export class QuizService {
 
-   private apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiUrl;
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-    getQuizzes() {
-      return this.http.get(`${this.apiUrl}/quizzes`);
-    }
-  private baseUrl = '/api/quiz';
-
-//   constructor(private http: HttpClient) {}
+  getQuizzes() {
+    return this.http.get(`${this.apiUrl}/quizzes`);
+  }
 
   getQuestoesPorNivel(level: number): Observable<QuestaoDTO[]> {
-    return this.http.get<QuestaoDTO[]>(`${this.baseUrl}/levels/${level}/questions`);
+    return this.http.get<QuestaoDTO[]>(`${this.apiUrl}/quiz/levels/${level}/questions`);
   }
 
   getTodasPerguntas(): Observable<QuestaoDTO[]> {
-    return this.http.get<QuestaoDTO[]>(`${this.baseUrl}/perguntas`);
+    return this.http.get<QuestaoDTO[]>(`${this.apiUrl}/quiz/perguntas`);
   }
 
   submitRespostas(respostas: RespostaQuizDTO[]): Observable<ResultadoQuizDTO> {
     return this.http.post<ResultadoQuizDTO>(
-      `${this.baseUrl}/respostas`,
+      `${this.apiUrl}/quiz/respostas`,
       respostas
     );
   }
