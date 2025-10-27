@@ -1,4 +1,3 @@
-// src/app/services/session.service.ts - VERSÃO COM PERSISTÊNCIA
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
