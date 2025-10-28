@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/quiz")
-
+@RequestMapping("/api/quiz" )
 public class QuizController {
 
     private final PerguntaService perguntaService;
@@ -19,6 +18,11 @@ public class QuizController {
     public QuizController(PerguntaService perguntaService, QuizService quizService) {
         this.perguntaService = perguntaService;
         this.quizService = quizService;
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("API is up and running!");
     }
 
     @GetMapping("/levels/{level}/questions")
