@@ -1,4 +1,4 @@
-package com.libras.backend.repository.quiz;
+package main.java.com.libras.backend.repository;
 
 import com.libras.backend.model.quiz.Pergunta;
 import org.springframework.data.jpa.repository.JpaRepository;

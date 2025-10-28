@@ -3,7 +3,7 @@ package com.libras.backend.quiz;
 import com.libras.backend.model.quiz.Pergunta;
 import com.libras.backend.quiz.dto.RespostaQuizDTO;
 import com.libras.backend.quiz.dto.ResultadoQuizDTO;
-import com.libras.backend.repository.quiz.PerguntaRepository;
+import main.java.com.libras.backend.repository.PerguntaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
