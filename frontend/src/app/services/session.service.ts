@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface NivelProgresso {
   nivel: number;
@@ -9,6 +10,17 @@ export interface NivelProgresso {
   desbloqueado: boolean;
   dataCompletado?: string;
   tentativas?: number;
+}
+
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+  private apiUrl = environment.apiUrl;
+
+  constructor(private http: HttpClient) {}
+
+  getWords() {
+    return this.http.get(`${this.apiUrl}/words`);
+  }
 }
 
 @Injectable({
