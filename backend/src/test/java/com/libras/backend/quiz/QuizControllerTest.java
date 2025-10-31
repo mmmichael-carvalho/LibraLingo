@@ -7,6 +7,7 @@ import com.libras.backend.quiz.dto.ResultadoQuizDTO;
 import com.libras.backend.model.quiz.TipoPergunta;
 import com.libras.backend.model.quiz.Opcao;
 import com.libras.backend.service.PerguntaService;
+import main.java.com.libras.backend.controller.QuizController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

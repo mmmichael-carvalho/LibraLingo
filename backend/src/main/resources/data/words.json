@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "word": "Olá",
+    "description": "Saudação básica em Libras",
+    "imageUrl": "/assets/images/ola.jpg",
+    "category": "saudacoes"
+  },
+  {
+    "id": 2,
+    "word": "Obrigado",
+    "description": "Expressar gratidão",
+    "imageUrl": "/assets/images/obrigado.jpg",
+    "category": "saudacoes"
+  },
+  {
+    "id": 3,
+    "word": "Bom dia",
+    "description": "Cumprimento matinal",
+    "imageUrl": "/assets/images/bom-dia.jpg",
+    "category": "saudacoes"
+  }
+]

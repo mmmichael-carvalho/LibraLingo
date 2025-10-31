@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "Qual é o sinal correto para 'Olá'?",
+    "imageUrl": "/assets/images/quiz/ola-question.jpg",
+    "options": [
+      {
+        "id": "A",
+        "text": "Opção A",
+        "imageUrl": "/assets/images/quiz/ola-a.jpg"
+      },
+      {
+        "id": "B",
+        "text": "Opção B",
+        "imageUrl": "/assets/images/quiz/ola-b.jpg"
+      },
+      {
+        "id": "C",
+        "text": "Opção C",
+        "imageUrl": "/assets/images/quiz/ola-c.jpg"
+      }
+    ],
+    "correctAnswer": "A",
+    "category": "saudacoes"
+  },
+  {
+    "id": 2,
+    "question": "Como se faz o sinal de 'Obrigado'?",
+    "imageUrl": "/assets/images/quiz/obrigado-question.jpg",
+    "options": [
+      {
+        "id": "A",
+        "text": "Opção A",
+        "imageUrl": "/assets/images/quiz/obrigado-a.jpg"
+      },
+      {
+        "id": "B",
+        "text": "Opção B",
+        "imageUrl": "/assets/images/quiz/obrigado-b.jpg"
+      },
+      {
+        "id": "C",
+        "text": "Opção C",
+        "imageUrl": "/assets/images/quiz/obrigado-c.jpg"
+      }
+    ],
+    "correctAnswer": "B",
+    "category": "saudacoes"
+  }
+]
