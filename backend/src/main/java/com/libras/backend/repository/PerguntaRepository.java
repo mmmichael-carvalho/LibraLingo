@@ -1,4 +1,4 @@
-package main.java.com.libras.backend.repository;
+package com.libras.backend.repository;
 
 
 import com.libras.backend.model.quiz.Pergunta;
