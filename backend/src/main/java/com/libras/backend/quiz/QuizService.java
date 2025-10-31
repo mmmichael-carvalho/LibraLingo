@@ -3,24 +3,24 @@ package com.libras.backend.quiz;
 import com.libras.backend.model.quiz.Pergunta;
 import com.libras.backend.quiz.dto.RespostaQuizDTO;
 import com.libras.backend.quiz.dto.ResultadoQuizDTO;
-import main.java.com.libras.backend.repository.PerguntaRepository;
+import com.libras.backend.service.JsonDataService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class QuizService {
-    private final PerguntaRepository perguntaRepository;
+    private final JsonDataService jsonDataService;
 
-    public QuizService(PerguntaRepository perguntaRepository) {
-        this.perguntaRepository = perguntaRepository;
+    public QuizService(JsonDataService jsonDataService) {
+        this.jsonDataService = jsonDataService;
     }
 
     public ResultadoQuizDTO calculaResultado(List<RespostaQuizDTO> respostas) {
         int acertos = 0;
 
         for (RespostaQuizDTO resposta : respostas) {
-            Pergunta pergunta = perguntaRepository.findById(resposta.getPerguntaId()).orElse(null);
+            Pergunta pergunta = jsonDataService.getPerguntaById(resposta.getPerguntaId());
             if (pergunta != null && resposta.getOpcaoEscolhida().equals(pergunta.getIndiceCorreto())) {
                 acertos++;
             }

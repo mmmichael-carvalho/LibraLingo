@@ -10,10 +10,11 @@ public class Quiz {
     private String correctAnswer;
     private String category;
 
-    // Construtores
-    public Quiz() {}
 
-    // Getters e Setters
+    public Quiz() {
+    }
+
+
     public Long getId() {
         return id;
     }

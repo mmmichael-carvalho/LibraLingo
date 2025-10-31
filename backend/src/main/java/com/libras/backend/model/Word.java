@@ -7,8 +7,8 @@ public class Word {
     private String imageUrl;
     private String category;
 
-    // Construtores
-    public Word() {}
+    public Word() {
+    }
 
     public Word(Long id, String word, String description, String imageUrl, String category) {
         this.id = id;
@@ -18,7 +18,6 @@ public class Word {
         this.category = category;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

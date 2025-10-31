@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.libras.backend.model.Quiz;
 import com.libras.backend.model.Word;
+import com.libras.backend.model.quiz.Pergunta;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +62,9 @@ public class JsonDataService {
                 .filter(quiz -> quiz.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public Pergunta getPerguntaById(Long perguntaId) {
+
     }
 }
