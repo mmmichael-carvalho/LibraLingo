@@ -1,40 +1,45 @@
 package com.libras.backend.model.quiz;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
 public class Opcao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public class Opcao {
+        private Long id;
+        private String texto;
+        private String imagemUrl;
 
-    // REMOVER @NotBlank aqui
-    @Column(nullable = true)
-    private String texto;
 
-    @Column(nullable = true)
-    private String imagemUrl;
+        public Long getId() {
+            return id;
+        }
 
-    @ManyToOne
-    @JoinColumn(name = "pergunta_id", nullable = false)
-    @JsonBackReference
-    private Pergunta pergunta;
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-    public Opcao() {}
-    public Opcao(String texto) { this.texto = texto; }
+        public String getTexto() {
+            return texto;
+        }
 
-    // getters / setters …
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+        public void setTexto(String texto) {
+            this.texto = texto;
+        }
 
-    public String getTexto() { return texto; }
-    public void setTexto(String texto) { this.texto = texto; }
+        public String getImagemUrl() {
+            return imagemUrl;
+        }
 
-    public String getImagemUrl() { return imagemUrl; }
-    public void setImagemUrl(String imagemUrl) { this.imagemUrl = imagemUrl; }
+        public void setImagemUrl(String imagemUrl) {
+            this.imagemUrl = imagemUrl;
+        }
 
-    public Pergunta getPergunta() { return pergunta; }
-    public void setPergunta(Pergunta pergunta) { this.pergunta = pergunta; }
-}
+        public Pergunta getPergunta() {
+            return pergunta;
+        }
+
+        public void setPergunta(Pergunta pergunta) {
+            this.pergunta = pergunta;
+        }
+    }

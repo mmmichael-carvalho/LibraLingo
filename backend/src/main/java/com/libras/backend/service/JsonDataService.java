@@ -1,4 +1,4 @@
-package main.java.com.libras.backend.service;
+package com.libras.backend.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
