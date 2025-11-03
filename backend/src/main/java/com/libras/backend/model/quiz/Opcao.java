@@ -1,19 +1,18 @@
 package com.libras.backend.model.quiz;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Opcao {
-    private Long id;
+
+    @Column(length = 500)
     private String texto;
+
+    @Column(length = 500)
     private String imagemUrl;
 
     // Getters e Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTexto() {
         return texto;
     }

@@ -1,12 +1,11 @@
 {
+  "name": "libralingo-frontend",
+  "version": "1.0.0",
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration production"
-  }
-}
   },
-
   "private": true,
   "dependencies": {
     "@angular/common": "^20.0.0",

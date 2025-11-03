@@ -29,7 +29,8 @@ export class QuizListComponent implements OnInit, OnDestroy {
   erro = '';
   isAnswered = false;
 
-  private readonly API_BASE = environment.apiUrl;
+public readonly API_BASE = environment.apiUrl;
+public readonly BASE_URL = environment.baseUrl;
 
   constructor(
     private router: Router,

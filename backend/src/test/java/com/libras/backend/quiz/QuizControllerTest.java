@@ -66,7 +66,7 @@ class QuizControllerTest {
     @Test
     @DisplayName("POST /api/quiz/respostas → calcula resultado e retorna DTO")
     void deveCalcularResultado() throws Exception {
-        ResultadoQuizDTO resultado = new ResultadoQuizDTO(2, "Parabéns! Você acertou 2 de 2 perguntas!");
+        ResultadoQuizDTO resultado = new ResultadoQuizDTO(2, 2, "Parabéns! Você acertou 2 de 2 perguntas!");
         given(quizService.calculaResultado(anyList())).willReturn(resultado);
 
         List<RespostaQuizDTO> respostas = List.of(

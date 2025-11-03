@@ -1,4 +1,3 @@
-
 <div class="quiz-container">
   <header class="quiz-header">
     <div class="header-content">
@@ -48,7 +47,8 @@
             <!-- Número indicador apenas para múltiplas imagens -->
             <div *ngIf="currentQuestion.prompt.length > 1" class="image-number">{{ i + 1 }}</div>
 
-            <img [src]="imagemUrl"
+            <!-- ✅ CORREÇÃO 1: Adicionar API_BASE antes da imagemUrl -->
+            <img [src]="BASE_URL + imagemUrl"
                  [alt]="'Sinal em Libras - Imagem ' + (i + 1)"
                  class="libras-image"
                  (error)="onImageError($event, imagemUrl)">
@@ -91,7 +91,9 @@
                    (change)="selectOption(i)">
             <div class="image-content">
               <span class="option-letter">{{ getOptionLetter(i) }}</span>
-              <img [src]="opcao.imagemUrl"
+
+              <!-- ✅ CORREÇÃO 2: Adicionar API_BASE antes da opcao.imagemUrl -->
+              <img [src]="BASE_URL + opcao.imagemUrl"
                    alt="Opção {{ getOptionLetter(i) }}"
                    class="option-image">
             </div>

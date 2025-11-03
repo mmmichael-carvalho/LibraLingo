@@ -1,4 +1,4 @@
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,9 +7,6 @@ import {
   RespostaQuizDTO,
   ResultadoQuizDTO
 } from '../models';
-
-
-import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -24,13 +21,12 @@ export class ApiService {
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
-
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   getQuizzes() {
-    return this.http.get(`${this.apiUrl}/quizzes`);
+    return this.http.get(`${this.apiUrl}/quiz`);
   }
 
   getQuestoesPorNivel(level: number): Observable<QuestaoDTO[]> {

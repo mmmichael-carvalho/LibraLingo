@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from '../environments/environment';
 
 export interface NivelProgresso {
   nivel: number;
@@ -10,17 +9,6 @@ export interface NivelProgresso {
   desbloqueado: boolean;
   dataCompletado?: string;
   tentativas?: number;
-}
-
-@Injectable({ providedIn: 'root' })
-export class ApiService {
-  private apiUrl = environment.apiUrl;
-
-  constructor(private http: HttpClient) {}
-
-  getWords() {
-    return this.http.get(`${this.apiUrl}/words`);
-  }
 }
 
 @Injectable({
@@ -33,13 +21,13 @@ export class SessionService {
   private progressoSubject = new BehaviorSubject<Map<number, NivelProgresso>>(new Map());
   public progresso$ = this.progressoSubject.asObservable();
 
-private readonly NIVEIS_CONFIG = [
-  { numero: 1, nome: 'Cumprimentos Básicos', emoji: '👋', descricao: 'Cumprimentos básicos em LIBRAS', totalPerguntas: 5 },
-  { numero: 2, nome: 'Conversas Cotidianas', emoji: '🗣️', descricao: 'Palavras mais usadas em libras', totalPerguntas: 5 },
-  { numero: 3, nome: 'Família', emoji: '👨‍👩‍👧‍👦', descricao: 'Sinais da família', totalPerguntas: 5 },
-  { numero: 4, nome: 'Alimentos', emoji: '🍎', descricao: 'Comidas e bebidas', totalPerguntas: 5 },
-  { numero: 5, nome: 'Lugares', emoji: '🏠', descricao: 'Lugares importantes', totalPerguntas: 5 }
-];
+  private readonly NIVEIS_CONFIG = [
+    { numero: 1, nome: 'Cumprimentos Básicos', emoji: '👋', descricao: 'Cumprimentos básicos em LIBRAS', totalPerguntas: 5 },
+    { numero: 2, nome: 'Conversas Cotidianas', emoji: '🗣️', descricao: 'Palavras mais usadas em libras', totalPerguntas: 5 },
+    { numero: 3, nome: 'Família', emoji: '👨‍👩‍👧‍👦', descricao: 'Sinais da família', totalPerguntas: 5 },
+    { numero: 4, nome: 'Alimentos', emoji: '🍎', descricao: 'Comidas e bebidas', totalPerguntas: 5 },
+    { numero: 5, nome: 'Lugares', emoji: '🏠', descricao: 'Lugares importantes', totalPerguntas: 5 }
+  ];
 
   constructor() {
     this.carregarProgresso();
@@ -52,11 +40,9 @@ private readonly NIVEIS_CONFIG = [
       if (saved) {
         const data = JSON.parse(saved);
 
-        // Verificar versão para evitar problemas com mudanças futuras
         if (data.version === this.STORAGE_VERSION) {
           const progressoMap = new Map<number, NivelProgresso>();
 
-          // Reconstruir o Map a partir do objeto salvo
           Object.keys(data.progresso).forEach(key => {
             const nivel = parseInt(key);
             progressoMap.set(nivel, data.progresso[key]);
@@ -71,7 +57,6 @@ private readonly NIVEIS_CONFIG = [
       console.error('Erro ao carregar progresso:', error);
     }
 
-    // Se não há dados salvos ou houve erro, inicializar novo
     this.inicializarProgresso();
   }
 
@@ -96,7 +81,6 @@ private readonly NIVEIS_CONFIG = [
     try {
       const progressoMap = this.progressoSubject.getValue();
 
-      // Converter Map para objeto para salvar no localStorage
       const progressoObj: any = {};
       progressoMap.forEach((value, key) => {
         progressoObj[key] = value;
@@ -120,21 +104,17 @@ private readonly NIVEIS_CONFIG = [
     const nivelAtual = progressoAtual.get(nivel);
 
     if (nivelAtual) {
-      // Incrementar tentativas
       nivelAtual.tentativas = (nivelAtual.tentativas || 0) + 1;
 
-      // Atualizar melhor pontuação
       if (!nivelAtual.pontuacao || pontuacao > nivelAtual.pontuacao) {
         nivelAtual.pontuacao = pontuacao;
       }
 
-      // Marcar como completado se ainda não estava
       if (!nivelAtual.completado) {
         nivelAtual.completado = true;
         nivelAtual.dataCompletado = new Date().toISOString();
       }
 
-      // Regra de desbloqueio: 4 acertos de 5 perguntas
       const passou = pontuacao >= 4;
 
       if (passou && nivel < 5) {
@@ -148,7 +128,6 @@ private readonly NIVEIS_CONFIG = [
       progressoAtual.set(nivel, nivelAtual);
       this.progressoSubject.next(new Map(progressoAtual));
 
-      // Salvar após cada mudança
       this.salvarProgresso();
 
       console.log(`✅ Nível ${nivel} completado: ${pontuacao}/${totalPerguntas} (Tentativa #${nivelAtual.tentativas})`);
@@ -172,23 +151,21 @@ private readonly NIVEIS_CONFIG = [
     return progresso.get(nivel)?.pontuacao;
   }
 
-public getNiveisComStatus() {
-  const progresso = this.progressoSubject.getValue();
+  public getNiveisComStatus() {
+    const progresso = this.progressoSubject.getValue();
 
-  return this.NIVEIS_CONFIG.map(config => {
-    const progressoNivel = progresso.get(config.numero);
-    return {
-      ...config,
-      disponivel: progressoNivel?.desbloqueado || false,
-      completado: progressoNivel?.completado || false,
-      pontuacao: progressoNivel?.pontuacao,
-      tentativas: progressoNivel?.tentativas || 0,
-      dataCompletado: progressoNivel?.dataCompletado,
-
-
-    };
-  });
-}
+    return this.NIVEIS_CONFIG.map(config => {
+      const progressoNivel = progresso.get(config.numero);
+      return {
+        ...config,
+        disponivel: progressoNivel?.desbloqueado || false,
+        completado: progressoNivel?.completado || false,
+        pontuacao: progressoNivel?.pontuacao,
+        tentativas: progressoNivel?.tentativas || 0,
+        dataCompletado: progressoNivel?.dataCompletado,
+      };
+    });
+  }
 
   public getEstatisticas() {
     const progresso = this.progressoSubject.getValue();
@@ -220,7 +197,6 @@ public getNiveisComStatus() {
     }
   }
 
-  // Novo método para exportar progresso
   public exportarProgresso(): string {
     const progressoMap = this.progressoSubject.getValue();
     const progressoObj: any = {};
@@ -236,7 +212,6 @@ public getNiveisComStatus() {
     }, null, 2);
   }
 
-  // Novo método para importar progresso
   public importarProgresso(jsonString: string): boolean {
     try {
       const data = JSON.parse(jsonString);

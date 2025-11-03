@@ -8,14 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/quiz" )
-public class QuizController {
+//@RestController
+//@RequestMapping("/api/perguntas")
+public class QuizController2 {
 
     private final PerguntaService perguntaService;
     private final QuizService quizService;
 
-    public QuizController(PerguntaService perguntaService, QuizService quizService) {
+    public QuizController2(PerguntaService perguntaService, QuizService quizService) {
         this.perguntaService = perguntaService;
         this.quizService = quizService;
     }

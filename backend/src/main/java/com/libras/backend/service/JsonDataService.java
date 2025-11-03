@@ -4,11 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.libras.backend.model.Quiz;
 import com.libras.backend.model.Word;
-import com.libras.backend.model.quiz.Pergunta;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-
 import jakarta.annotation.PostConstruct;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -18,16 +17,14 @@ import java.util.List;
 public class JsonDataService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private List<Word> words = new ArrayList<Word>();
-    private List<Quiz> quizzes = new ArrayList<Quiz>();
+    private List<Word> words = new ArrayList<>();
+    private List<Quiz> quizzes = new ArrayList<>();
 
     @PostConstruct
     public void loadData() {
         try {
-
             InputStream wordsStream = new ClassPathResource("data/words.json").getInputStream();
             words = objectMapper.readValue(wordsStream, new TypeReference<List<Word>>() {});
-
 
             InputStream quizStream = new ClassPathResource("data/quiz.json").getInputStream();
             quizzes = objectMapper.readValue(quizStream, new TypeReference<List<Quiz>>() {});
@@ -64,7 +61,5 @@ public class JsonDataService {
                 .orElse(null);
     }
 
-    public Pergunta getPerguntaById(Long perguntaId) {
 
-    }
 }

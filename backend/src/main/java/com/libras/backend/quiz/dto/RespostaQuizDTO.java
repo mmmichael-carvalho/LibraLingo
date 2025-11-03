@@ -4,7 +4,6 @@ public class RespostaQuizDTO {
     private Long perguntaId;
     private Integer opcaoEscolhida;
 
-    // ✅ ADICIONAR CONSTRUTOR PADRÃO
     public RespostaQuizDTO() {}
     public RespostaQuizDTO(Long perguntaId, Integer opcaoEscolhida) {
         this.perguntaId = perguntaId;
@@ -14,7 +13,7 @@ public class RespostaQuizDTO {
     public Long getPerguntaId() { return perguntaId; }
     public Integer getOpcaoEscolhida() { return opcaoEscolhida; }
 
-    // ✅ ADICIONAR SETTERS TAMBÉM
+
     public void setPerguntaId(Long perguntaId) { this.perguntaId = perguntaId; }
     public void setOpcaoEscolhida(Integer opcaoEscolhida) { this.opcaoEscolhida = opcaoEscolhida; }
 }
