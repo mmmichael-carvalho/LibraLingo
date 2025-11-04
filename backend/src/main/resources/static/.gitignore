@@ -1,0 +1,7 @@
+*.js
+*.css
+*.html
+*.txt
+
+# Mas manter a pasta de imagens
+!images/
