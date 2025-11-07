@@ -1,15 +1,8 @@
 package com.libras.backend.model.quiz;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public class Opcao {
 
-    @Column(length = 500)
     private String texto;
-
-    @Column(length = 500)
     private String imagemUrl;
 
     public String getTexto() {

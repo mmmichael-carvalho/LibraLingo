@@ -1,29 +1,15 @@
 package com.libras.backend.model.quiz;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "perguntas")
 public class Pergunta {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Integer level;
-
-    @Enumerated(EnumType.STRING)
     private TipoPergunta tipo;
-
-    @Column(length = 1000)
     private String prompt;
-
     private Integer indiceCorreto;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "opcoes", joinColumns = @JoinColumn(name = "pergunta_id"))
     private List<Opcao> opcoes = new ArrayList<>();
 
     public Long getId() {
