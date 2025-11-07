@@ -1,11 +1,9 @@
 package com.libras.backend.controller;
 
-import com.libras.backend.model.Quiz;
 import com.libras.backend.model.quiz.Pergunta;
 import com.libras.backend.quiz.dto.QuestaoDTO;
 import com.libras.backend.quiz.dto.RespostaQuizDTO;
 import com.libras.backend.quiz.dto.ResultadoQuizDTO;
-import com.libras.backend.service.JsonDataService;
 import com.libras.backend.service.PerguntaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,32 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/quiz")
-@CrossOrigin(origins = {"http://localhost:4200", "https://libralingo.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://libralingo-production-bc0a.up.railway.app"})
 public class QuizController {
-
-    @Autowired
-    private JsonDataService jsonDataService;
 
     @Autowired
     private PerguntaService perguntaService;
 
-    @GetMapping
-    public List<Quiz> getAllQuizzes() {
-        return jsonDataService.getAllQuizzes();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Quiz> getQuizById(@PathVariable Long id) {
-        Quiz quiz = jsonDataService.getQuizById(id);
-        if (quiz != null) {
-            return ResponseEntity.ok(quiz);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
     @PostMapping("/respostas")
     public ResponseEntity<ResultadoQuizDTO> calcularResultado(@RequestBody List<RespostaQuizDTO> respostas) {
-
         int acertos = 0;
 
         for (RespostaQuizDTO resposta : respostas) {
