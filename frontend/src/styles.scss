@@ -1,20 +1,15 @@
-/* src/styles.scss - Estilos globais */
-
-/* Reset básico para remover margens/padding padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Garantir que html e body ocupem 100% da viewport */
 html, body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden; /* Evita scroll horizontal indesejado */
+  overflow-x: hidden;
 }
 
-/* Remover margens padrão do body */
 body {
   margin: 0;
   padding: 0;
@@ -22,19 +17,16 @@ body {
                "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Garantir que o app-root ocupe toda a tela */
 app-root {
   display: block;
   min-height: 100vh;
   width: 100%;
 }
 
-/* Estilos para scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Remover outline padrão dos botões e focos */
 button:focus,
 input:focus,
 textarea:focus,
@@ -42,7 +34,6 @@ select:focus {
   outline: none;
 }
 
-/* Melhorar a aparência dos botões */
 button {
   cursor: pointer;
   border: none;
@@ -50,19 +41,16 @@ button {
   font-family: inherit;
 }
 
-/* Estilo para inputs */
 input, textarea, select {
   font-family: inherit;
   font-size: inherit;
 }
 
-/* Responsividade para imagens */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Cores personalizadas que podem ser reutilizadas */
 :root {
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --primary-color: #6B46C1;
@@ -75,14 +63,12 @@ img {
   --border-light: #E5E7EB;
 }
 
-/* Classe utilitária para gradiente de fundo completo */
 .full-gradient-bg {
   background: var(--primary-gradient);
   min-height: 100vh;
   width: 100%;
 }
 
-/* Animação para elementos que aparecem */
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -12,7 +12,6 @@ public class Opcao {
     @Column(length = 500)
     private String imagemUrl;
 
-    // Getters e Setters
     public String getTexto() {
         return texto;
     }

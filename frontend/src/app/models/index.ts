@@ -1,4 +1,3 @@
-// src/app/models/index.ts
 export type TipoPergunta = 'IMAGEM_PARA_TEXTO' | 'TEXTO_PARA_IMAGEM';
 
 export interface OptionDTO {
@@ -24,7 +23,7 @@ export interface ResultadoQuizDTO {
   mensagem: string;
 }
 
-// ✅ Interface para armazenar detalhes da resposta
+
 export interface RespostaDetalhada {
   pergunta: QuestaoDTO;
   opcaoEscolhida: number | null;

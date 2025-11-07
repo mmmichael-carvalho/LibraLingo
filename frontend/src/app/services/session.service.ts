@@ -130,7 +130,7 @@ export class SessionService {
 
       this.salvarProgresso();
 
-      console.log(`✅ Nível ${nivel} completado: ${pontuacao}/${totalPerguntas} (Tentativa #${nivelAtual.tentativas})`);
+      console.log(`Nível ${nivel} completado: ${pontuacao}/${totalPerguntas} (Tentativa #${nivelAtual.tentativas})`);
     }
   }
 

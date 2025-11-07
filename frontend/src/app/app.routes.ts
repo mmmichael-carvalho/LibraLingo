@@ -1,4 +1,3 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { QuizListComponent } from './components/quiz-list/quiz-list.component';
 import { QuizResultComponent } from './components/quiz-result/quiz-result.component';

@@ -1,6 +1,4 @@
-# ============================================================================
-# LibraLingo - Build e Deploy Script (Windows PowerShell)
-# ============================================================================
+
 
 Write-Host ""
 Write-Host "===============================================================" -ForegroundColor Cyan
@@ -9,7 +7,6 @@ Write-Host "     Build unificado: Angular + Spring Boot" -ForegroundColor White
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host ""
 
-# Verificar se estamos na raiz do projeto
 if (-not (Test-Path "frontend") -or -not (Test-Path "backend")) {
     Write-Host "[ERRO] Execute este script da raiz do projeto!" -ForegroundColor Red
     Write-Host "   Estrutura esperada:" -ForegroundColor Yellow
@@ -22,10 +19,6 @@ if (-not (Test-Path "frontend") -or -not (Test-Path "backend")) {
 
 $StartTime = Get-Date
 
-# ============================================================================
-# PASSO 1: Build Frontend (Angular)
-# ============================================================================
-
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host "[1/4] Building Frontend (Angular)..." -ForegroundColor Yellow
 Write-Host "===============================================================" -ForegroundColor Cyan
@@ -33,14 +26,12 @@ Write-Host ""
 
 Set-Location frontend
 
-# Verificar se node_modules existe
 if (-not (Test-Path "node_modules")) {
     Write-Host "[INFO] node_modules nao encontrado. Executando npm install..." -ForegroundColor Yellow
     npm install
     Write-Host ""
 }
 
-# Build de producao
 Write-Host "[BUILD] Executando build de producao..." -ForegroundColor Yellow
 npm run build -- --configuration production
 
@@ -54,10 +45,6 @@ Write-Host ""
 Write-Host "[OK] Frontend build concluido com sucesso!" -ForegroundColor Green
 Write-Host ""
 
-# ============================================================================
-# PASSO 2: Copiar build para backend
-# ============================================================================
-
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host "[2/4] Copiando build para backend..." -ForegroundColor Yellow
 Write-Host "===============================================================" -ForegroundColor Cyan
@@ -66,16 +53,13 @@ Write-Host ""
 Set-Location ..
 $BackendStatic = "backend\src\main\resources\static"
 
-# Criar diretorio static se nao existir
 if (-not (Test-Path $BackendStatic)) {
     New-Item -ItemType Directory -Path $BackendStatic | Out-Null
 }
 
-# Limpar conteudo anterior
 Write-Host "[CLEAN] Limpando build anterior..." -ForegroundColor Yellow
 Get-ChildItem -Path $BackendStatic -Recurse | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
 
-# Encontrar pasta de build
 $DistPath = $null
 $PossiblePaths = @(
     "frontend\dist\browser",
@@ -98,7 +82,6 @@ if (-not $DistPath) {
 
 Write-Host "[INFO] Build encontrado em: $DistPath" -ForegroundColor Green
 
-# Copiar arquivos
 Write-Host "[COPY] Copiando arquivos..." -ForegroundColor Yellow
 Copy-Item -Path "$DistPath\*" -Destination $BackendStatic -Recurse -Force
 
@@ -106,8 +89,7 @@ if ($LASTEXITCODE -eq 0 -or $?) {
     $FileCount = (Get-ChildItem -Path $BackendStatic -Recurse -File).Count
     Write-Host ""
     Write-Host "[OK] $FileCount arquivos copiados com sucesso!" -ForegroundColor Green
-    
-    # Listar alguns arquivos importantes
+
     Write-Host "[INFO] Arquivos principais:" -ForegroundColor Yellow
     Get-ChildItem -Path $BackendStatic -Filter "*.html" | ForEach-Object {
         $sizeKB = [math]::Round($_.Length / 1024, 2)
@@ -120,10 +102,6 @@ if ($LASTEXITCODE -eq 0 -or $?) {
 }
 Write-Host ""
 
-# ============================================================================
-# PASSO 3: Build Backend (Spring Boot)
-# ============================================================================
-
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host "[3/4] Building Backend (Spring Boot)..." -ForegroundColor Yellow
 Write-Host "===============================================================" -ForegroundColor Cyan
@@ -131,7 +109,6 @@ Write-Host ""
 
 Set-Location backend
 
-# Verificar se Maven esta instalado
 $MavenInstalled = Get-Command mvn -ErrorAction SilentlyContinue
 if (-not $MavenInstalled) {
     Write-Host "[ERRO] Maven nao encontrado! Instale Maven primeiro." -ForegroundColor Red
@@ -139,7 +116,6 @@ if (-not $MavenInstalled) {
     exit 1
 }
 
-# Clean e package
 Write-Host "[CLEAN] Limpando builds anteriores..." -ForegroundColor Yellow
 mvn clean
 
@@ -157,16 +133,11 @@ Write-Host ""
 Write-Host "[OK] Backend build concluido com sucesso!" -ForegroundColor Green
 Write-Host ""
 
-# ============================================================================
-# PASSO 4: Verificar JAR Final
-# ============================================================================
-
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host "[4/4] Verificando JAR final..." -ForegroundColor Yellow
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host ""
 
-# Encontrar JAR (excluindo original)
 $JarFile = Get-ChildItem -Path "target" -Filter "*.jar" -File | Where-Object { $_.Name -notlike "*-original.jar" } | Select-Object -First 1
 
 if ($JarFile) {
@@ -178,8 +149,7 @@ if ($JarFile) {
     Write-Host "  - Nome: $($JarFile.Name)" -ForegroundColor Green
     Write-Host "  - Tamanho: $FileSizeMB MB" -ForegroundColor Green
     Write-Host "  - Caminho: $($JarFile.FullName)" -ForegroundColor Green
-    
-    # Verificar se contem arquivos estaticos
+
     Write-Host ""
     Write-Host "[CHECK] Verificando conteudo do JAR..." -ForegroundColor Yellow
     
@@ -200,10 +170,6 @@ if ($JarFile) {
     Write-Host "[ERRO] JAR nao encontrado!" -ForegroundColor Red
     exit 1
 }
-
-# ============================================================================
-# Finalizacao
-# ============================================================================
 
 $EndTime = Get-Date
 $Duration = ($EndTime - $StartTime).TotalSeconds

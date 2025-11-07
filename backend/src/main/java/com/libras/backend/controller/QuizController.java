@@ -53,7 +53,6 @@ public class QuizController {
             }
         }
 
-        // ✅ GERA A MENSAGEM
         String mensagem = acertos >= 4
                 ? String.format("Parabéns! Você acertou %d de %d perguntas!", acertos, respostas.size())
                 : String.format("Você acertou %d de %d. Tente novamente!", acertos, respostas.size());
@@ -61,12 +60,11 @@ public class QuizController {
         ResultadoQuizDTO resultado = new ResultadoQuizDTO();
         resultado.setPontuacao(acertos);
         resultado.setTotalPerguntas(respostas.size());
-        resultado.setMensagem(mensagem);  // ✅ ADICIONA A MENSAGEM
+        resultado.setMensagem(mensagem);
 
         return ResponseEntity.ok(resultado);
     }
 
-    // ✅ NOVO ENDPOINT PARA PERGUNTAS POR NÍVEL
     @GetMapping("/levels/{level}/questions")
     public ResponseEntity<List<QuestaoDTO>> getQuestoesPorNivel(@PathVariable Integer level) {
         List<QuestaoDTO> questoes = perguntaService.listarPorNivel(level);

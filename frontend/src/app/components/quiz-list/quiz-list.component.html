@@ -14,40 +14,32 @@
     </div>
   </header>
 
-  <!-- Loading -->
   <div *ngIf="loading" class="loading">
     <div class="spinner"></div>
     <p>{{ currentQuestionIndex === 0 ? 'Carregando perguntas...' : 'Enviando respostas...' }}</p>
   </div>
 
-  <!-- Erro -->
   <div *ngIf="erro" class="error">
     <div class="error-icon">⚠️</div>
     <p>{{ erro }}</p>
     <button (click)="carregarPerguntas()" class="retry-btn">Tentar Novamente</button>
   </div>
 
-  <!-- Quiz - Uma pergunta por vez -->
   <div *ngIf="!loading && !erro && currentQuestion" class="quiz-content">
     <div class="question-container">
 
-      <!-- Pergunta: Imagem para Texto -->
       <div *ngIf="currentQuestion.tipo === 'IMAGEM_PARA_TEXTO'" class="question-card img-to-text">
 
-        <!-- Texto da pergunta ANTES das imagens -->
         <div class="question-header">
           <h2 *ngIf="currentQuestion.prompt.length === 1">Qual o significado deste sinal?</h2>
           <h2 *ngIf="currentQuestion.prompt.length > 1">Qual o significado dessa sequência de sinais?</h2>
         </div>
 
-        <!-- Container das imagens -->
         <div class="question-images" [class.multiple-images]="currentQuestion.prompt.length > 1">
           <div *ngFor="let imagemUrl of currentQuestion.prompt; let i = index" class="image-container">
 
-            <!-- Número indicador apenas para múltiplas imagens -->
             <div *ngIf="currentQuestion.prompt.length > 1" class="image-number">{{ i + 1 }}</div>
 
-            <!-- ✅ CORREÇÃO 1: Adicionar API_BASE antes da imagemUrl -->
             <img [src]="BASE_URL + imagemUrl"
                  [alt]="'Sinal em Libras - Imagem ' + (i + 1)"
                  class="libras-image"
@@ -55,7 +47,6 @@
           </div>
         </div>
 
-        <!-- Opções de resposta -->
         <div class="options-grid">
           <label *ngFor="let opcao of currentQuestion.opcoes; let i = index"
                  class="option-card"
@@ -73,7 +64,6 @@
         </div>
       </div>
 
-      <!-- Pergunta: Texto para Imagem -->
       <div *ngIf="currentQuestion.tipo === 'TEXTO_PARA_IMAGEM'" class="question-card text-to-img">
         <div class="question-text">
           <h2>Qual imagem representa:</h2>
@@ -92,7 +82,6 @@
             <div class="image-content">
               <span class="option-letter">{{ getOptionLetter(i) }}</span>
 
-              <!-- ✅ CORREÇÃO 2: Adicionar API_BASE antes da opcao.imagemUrl -->
               <img [src]="BASE_URL + opcao.imagemUrl"
                    alt="Opção {{ getOptionLetter(i) }}"
                    class="option-image">
@@ -103,7 +92,6 @@
     </div>
   </div>
 
-  <!-- Navegação -->
   <div *ngIf="!loading && !erro && currentQuestion" class="navigation">
     <div class="navigation-container">
       <button class="nav-btn secondary"
@@ -130,7 +118,6 @@
     </div>
   </div>
 
-  <!-- Sem perguntas -->
   <div *ngIf="!loading && !erro && perguntas.length === 0" class="no-questions">
     <div class="empty-icon">📚</div>
     <p>Nenhuma pergunta disponível para este nível.</p>

@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-/* Header */
 .quiz-header {
   padding: 15px;
   background: rgba(45, 55, 72, 0.95);
@@ -58,7 +57,6 @@
   color: #a0aec0;
 }
 
-/* Conteúdo do Quiz */
 .quiz-content {
   flex: 1;
   display: flex;
@@ -81,7 +79,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ NOVO: Estilos para o header da pergunta */
 .question-header {
   margin-bottom: 25px;
 
@@ -94,7 +91,6 @@
   }
 }
 
-/* Container das imagens */
 .question-images {
   margin-bottom: 30px;
   display: grid;
@@ -102,7 +98,6 @@
   justify-items: center;
   align-items: center;
 
-  // Layout responsivo baseado no número de imagens
   &:has(.image-container:nth-child(2)):not(:has(.image-container:nth-child(3))) {
     grid-template-columns: repeat(2, 1fr);
     max-width: 500px;
@@ -128,7 +123,6 @@
   max-width: 220px;
 }
 
-/* Indicador numérico para sequências */
 .image-number {
   position: absolute;
   top: -10px;
@@ -175,7 +169,6 @@
   padding: 20px;
 }
 
-/* Pergunta de texto para imagem */
 .question-text {
   margin-bottom: 30px;
 }
@@ -198,7 +191,6 @@
   border: 2px solid #e2e8f0;
 }
 
-/* Opções de texto */
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -261,7 +253,6 @@
   text-align: left;
 }
 
-/* Opções de imagem */
 .image-options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -316,9 +307,9 @@
   background: rgba(45, 55, 72, 0.95);
   display: flex;
   align-items: center;
-  justify-content: center; /* ← MUDANÇA: de space-between para center */
+  justify-content: center;
   border-top: 1px solid #4a5568;
-  gap: 20px; /* ← NOVO: espaçamento entre os elementos */
+  gap: 20px;
 }
 
 .navigation-container {
@@ -326,7 +317,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 600px; /* ← NOVO: limita a largura máxima */
+  max-width: 600px;
   gap: 20px;
 }
 
@@ -392,7 +383,6 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
-/* Estados de loading e erro */
 .loading, .error, .no-questions {
   flex: 1;
   display: flex;
@@ -439,7 +429,6 @@
   background: #2c5282;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .question-card {
     padding: 20px;

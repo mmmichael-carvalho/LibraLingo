@@ -10,7 +10,6 @@
   min-height: 100vh;
 }
 
-/* ===== SEÇÃO DOS NÍVEIS ===== */
 .levels-section {
   flex: 1;
   padding: 20px 40px;
@@ -90,7 +89,7 @@
   right: 20px;
   z-index: 1000;
   max-width: 350px;
-  pointer-events: none; /* Não interfere na navegação */
+  pointer-events: none;
 }
 
 
@@ -220,15 +219,14 @@
 .hero-content {
   text-align: center;
   color: white;
-  max-width: 520px;        /* Largura ligeiramente maior */
+  max-width: 520px;
   width: 100%;
-  margin-left: 0;          /* Remove centralização */
+  margin-left: 0;
 }
 
-/* Logo centralizado */
 .libras-demo {
   margin-bottom: 30px;
-  text-align: center;      /* Mantém logo centralizado */
+  text-align: center;
 }
 
 .logo-container {
@@ -276,7 +274,7 @@
   font-weight: 300;
   color: #FFFFFF;
   letter-spacing: -1px;
-  text-align: center;      /* Título centralizado */
+  text-align: center;
 }
 
 .intro-text {
@@ -284,20 +282,19 @@
   line-height: 1.6;
   opacity: 0.8;
   margin-bottom: 25px;
-  text-align: center;      /* Texto intro centralizado */
+  text-align: center;
   color: #CBD5E1;
   font-weight: 300;
 }
 
-/* ===== CARDS INFORMATIVOS - ALINHADOS À ESQUERDA ===== */
 .info-cards {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-top: 25px;
   text-align: left;
-  max-width: 460px;        /* Largura controlada */
-  margin-left: -20px;      /* Move para esquerda */
+  max-width: 460px;
+  margin-left: -20px;
 }
 
 .info-card {
@@ -307,7 +304,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  width: 100%;             /* Garante largura completa */
+  width: 100%;
 }
 
 .info-card:hover {
@@ -356,7 +353,6 @@
   color: #63B3ED;
 }
 
-/* ✅ ANIMAÇÃO CORRIGIDA DO CONTEÚDO */
 .card-content {
   max-height: 0;
   overflow: hidden;
@@ -379,11 +375,10 @@
   padding-top: 8px;
 }
 
-/* ===== RESPONSIVIDADE AJUSTADA ===== */
 @media (max-width: 1024px) {
   .hero-section {
     padding: 30px 20px;
-    justify-content: center;  /* Volta a centralizar em mobile */
+    justify-content: center;
   }
 
   .hero-content {
@@ -391,7 +386,7 @@
   }
 
   .info-cards {
-    margin-left: 0;          /* Remove deslocamento em mobile */
+    margin-left: 0;
     max-width: 100%;
   }
 
@@ -408,14 +403,14 @@
 
 .levels-section {
   flex: 1;
-  padding: 20px 40px;           /* ← Espaçamento interno */
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
-  max-width: 660px;             /* ← Largura máxima */
+  max-width: 660px;
 }
 
 .levels-section {
-  padding: 20px 40px 20px 60px;  /* Mais espaço à esquerda */
+  padding: 20px 40px 20px 60px;
 }
 
 @media (max-width: 768px) {

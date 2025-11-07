@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-//@RestController
-//@RequestMapping("/api/perguntas")
 public class QuizController2 {
 
     private final PerguntaService perguntaService;

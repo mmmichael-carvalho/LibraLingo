@@ -29,12 +29,12 @@ public class JsonDataService {
             InputStream quizStream = new ClassPathResource("data/quiz.json").getInputStream();
             quizzes = objectMapper.readValue(quizStream, new TypeReference<List<Quiz>>() {});
 
-            System.out.println("✅ Dados carregados com sucesso!");
-            System.out.println("📚 " + words.size() + " palavras carregadas");
-            System.out.println("❓ " + quizzes.size() + " quizzes carregados");
+            System.out.println("Dados carregados com sucesso!");
+            System.out.println(words.size() + " palavras carregadas");
+            System.out.println(quizzes.size() + " quizzes carregados");
 
         } catch (IOException e) {
-            System.err.println("❌ Erro ao carregar dados JSON: " + e.getMessage());
+            System.err.println("Erro ao carregar dados JSON: " + e.getMessage());
             e.printStackTrace();
         }
     }

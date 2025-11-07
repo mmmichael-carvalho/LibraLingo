@@ -19,7 +19,6 @@ public class QuestaoDTO {
         this.indiceCorreto = indiceCorreto;
     }
 
-    // Getters
     public Long getId() { return id; }
     public TipoPergunta getTipo() { return tipo; }
     public List<String> getPrompt() { return prompt; }

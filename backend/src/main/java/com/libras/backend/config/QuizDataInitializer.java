@@ -154,7 +154,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 1. MÃE
         Pergunta pergunta1 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel3/mae3.png,/images/nivel3/mae32.png",  // Adicionar esta imagem
+                "/images/nivel3/mae3.png,/images/nivel3/mae32.png",
                 List.of("Pai", "Mãe", "Irmão", "Avó"),
                 1
         );
@@ -174,7 +174,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 3. PAI
         Pergunta pergunta3 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel3/pai3.png,/images/nivel3/mae32.png", // Adicionar esta imagem
+                "/images/nivel3/pai3.png,/images/nivel3/mae32.png",
                 List.of("Pai", "Tio", "Avô", "Primo"),
                 0
         );
@@ -184,7 +184,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 4. Amigo
         Pergunta pergunta4 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel3/amigo3.png",  // Adicionar esta imagem
+                "/images/nivel3/amigo3.png",
                 List.of("Primo", "Amigo", "Irmão", "Conhecido"),
                 1
         );
@@ -207,7 +207,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 1. ÁGUA
         Pergunta pergunta1 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel4/agua41.png,/images/nivel4/agua42.png",  // Adicionar esta imagem
+                "/images/nivel4/agua41.png,/images/nivel4/agua42.png",
                 List.of("Leite", "Café", "Água", "Suco"),
                 2
         );
@@ -217,7 +217,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 2. Restaurante
         Pergunta pergunta2 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel4/restaurante41.png,/images/nivel4/restaurante42.png",  // Adicionar esta imagem
+                "/images/nivel4/restaurante41.png,/images/nivel4/restaurante42.png",
                 List.of("Bebida", "Restaurante", "Cozinha", "Jantar"),
                 1
         );
@@ -227,7 +227,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 3. CAFÉ
         Pergunta pergunta3 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel4/cafe41.png,/images/nivel4/cafe42.png",  // Adicionar esta imagem
+                "/images/nivel4/cafe41.png,/images/nivel4/cafe42.png",
                 List.of("Chá", "Bebida", "Leite", "Café"),
                 3
         );
@@ -237,7 +237,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 4. Comer
         Pergunta pergunta4 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel4/comer41.png,/images/nivel4/comer42.png",  // Adicionar esta imagem
+                "/images/nivel4/comer41.png,/images/nivel4/comer42.png",
                 List.of("Comer", "Fome", "Vem", "Jantar"),
                 0
         );
@@ -260,7 +260,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 1. Casa
         Pergunta pergunta1 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel5/casa5.png",  // Adicionar esta imagem
+                "/images/nivel5/casa5.png",
                 List.of("Casa", "Escola", "Hospital", "Mercado"),
                 0
         );
@@ -270,7 +270,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 2. HOSPITAL
         Pergunta pergunta2 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel5/hospital51.png,/images/nivel5/hospital52.png",  // Adicionar esta imagem
+                "/images/nivel5/hospital51.png,/images/nivel5/hospital52.png",
                 List.of("Hospital", "Hotel", "Escola", "Banco"),
                 0
         );
@@ -280,7 +280,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 3. Shopping
         Pergunta pergunta3 = criarPergunta(
                 TipoPergunta.TEXTO_PARA_IMAGEM,
-                "Shopping",  // Adicionar esta imagem
+                "Shopping",
                 List.of("/images/null/idade.png", "/images/null/trem.png", "/images/null/moto.png", "/images/nivel5/shoping5.png"),
                 3
         );
@@ -290,7 +290,7 @@ public class QuizDataInitializer implements ApplicationRunner {
         // 2. Banheiro
         Pergunta pergunta4 = criarPergunta(
                 TipoPergunta.IMAGEM_PARA_TEXTO,
-                "/images/nivel5/banheiro5.png",  // Adicionar esta imagem
+                "/images/nivel5/banheiro5.png",
                 List.of("Hospital", "Hotel", "Banheiro", "Banco"),
                 2
         );

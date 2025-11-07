@@ -5,10 +5,8 @@ public class QuizOption {
     private String text;
     private String imageUrl;
 
-    // Construtores
     public QuizOption() {}
 
-    // Getters e Setters
     public String getId() {
         return id;
     }

@@ -9,7 +9,7 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
   imports: [CommonModule, RouterModule],
  template: `
    <div class="result-container">
-     <!-- Header consistente -->
+
      <header class="result-header">
        <div class="header-content">
          <button class="back-btn" (click)="voltarNiveis()">
@@ -21,7 +21,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
        </div>
      </header>
 
-     <!-- Conteúdo principal -->
      <div class="result-content">
        <!-- Card de Resumo -->
        <div class="result-card">
@@ -36,14 +35,12 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
 
          <p class="result-message">{{ resultado?.mensagem || 'Resultado não disponível' }}</p>
 
-         <!-- ✅ APENAS O TEXTO SIMPLES DOS ACERTOS -->
          <div *ngIf="respostasDetalhadas && respostasDetalhadas.length > 0" class="questions-summary-simple">
            <p class="acertos-text">
              <strong>Acertos:</strong> {{ getQuestoesAcertadas() }}
            </p>
          </div>
 
-         <!-- Botões de ação -->
          <div class="action-buttons">
            <button (click)="voltarNiveis()" class="btn btn-primary">
              Escolher Outro Nível
@@ -182,7 +179,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
       margin: 20px 0;
     }
 
-    /* ✅ Estilos para o resumo das questões */
     .questions-summary {
       background: #1a202c;
       border-radius: 12px;
@@ -287,7 +283,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
       border-color: #f56565;
     }
 
-    /* Botões de ação */
     .action-buttons {
       display: flex;
       gap: 15px;
@@ -327,7 +322,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
       background: rgba(49, 130, 206, 0.1);
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
       .result-card {
         padding: 25px;

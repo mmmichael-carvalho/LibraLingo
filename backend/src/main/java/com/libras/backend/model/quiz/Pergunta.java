@@ -26,7 +26,6 @@ public class Pergunta {
     @CollectionTable(name = "opcoes", joinColumns = @JoinColumn(name = "pergunta_id"))
     private List<Opcao> opcoes = new ArrayList<>();
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

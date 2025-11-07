@@ -71,9 +71,9 @@ export class LevelListComponent implements OnInit, OnDestroy {
     return '📚';
   }
 
-  public resetarProgresso(): void {
-    if (confirm('Resetar o progresso atual? (Útil para testar o MVP)')) {
-      this.sessionService.resetarProgresso();
-    }
+//   public resetarProgresso(): void {
+//     if (confirm('Resetar o progresso atual? ')) {
+//       this.sessionService.resetarProgresso();
+//     }
   }
 }
