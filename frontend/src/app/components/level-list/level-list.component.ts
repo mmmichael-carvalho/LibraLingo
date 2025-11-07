@@ -75,5 +75,5 @@ export class LevelListComponent implements OnInit, OnDestroy {
 //     if (confirm('Resetar o progresso atual? ')) {
 //       this.sessionService.resetarProgresso();
 //     }
-  }
+//   }
 }
