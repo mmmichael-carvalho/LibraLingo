@@ -1,6 +1,6 @@
 package com.libras.backend.service;
 
-import com.libras.backend.quiz.dto.QuestaoDTO;
+import com.libras.backend.model.dto.QuestaoDTO;
 import com.libras.backend.model.quiz.Pergunta;
 import org.springframework.stereotype.Service;
 

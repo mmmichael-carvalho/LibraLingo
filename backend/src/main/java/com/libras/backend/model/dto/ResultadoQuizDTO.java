@@ -1,4 +1,4 @@
-package com.libras.backend.quiz.dto;
+package com.libras.backend.model.dto;
 
 public class ResultadoQuizDTO {
     private int pontuacao;

@@ -1,9 +1,9 @@
 package com.libras.backend.controller;
 
 import com.libras.backend.model.quiz.Pergunta;
-import com.libras.backend.quiz.dto.QuestaoDTO;
-import com.libras.backend.quiz.dto.RespostaQuizDTO;
-import com.libras.backend.quiz.dto.ResultadoQuizDTO;
+import com.libras.backend.model.dto.QuestaoDTO;
+import com.libras.backend.model.dto.RespostaQuizDTO;
+import com.libras.backend.model.dto.ResultadoQuizDTO;
 import com.libras.backend.service.PerguntaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -13,5 +13,3 @@ bootstrapApplication(AppComponent, {
     )
   ]
 }).catch(err => console.error(err));
-
-// ✅ O SessionService é automaticamente disponibilizado porque tem @Injectable({ providedIn: 'root' })

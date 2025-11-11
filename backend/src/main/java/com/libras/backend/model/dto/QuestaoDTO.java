@@ -1,4 +1,4 @@
-package com.libras.backend.quiz.dto;
+package com.libras.backend.model.dto;
 
 import com.libras.backend.model.quiz.TipoPergunta;
 import com.libras.backend.model.quiz.Opcao;
