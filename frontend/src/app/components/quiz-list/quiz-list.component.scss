@@ -1,6 +1,6 @@
 .quiz-container {
   height: 100vh;
-  background: #1a202c;
+  background: #0a0e1a;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -153,10 +153,10 @@
   transition: all 0.2s ease;
 }
 
-.libras-image:hover {
-  border-color: #3182ce;
-  transform: scale(1.02);
-}
+// .libras-image:hover {
+//   border-color: #3182ce;
+// //   transform: scale(1.02);
+// }
 
 .libras-image.error {
   display: flex;

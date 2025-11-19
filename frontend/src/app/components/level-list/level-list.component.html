@@ -12,8 +12,8 @@
              class="level-item"
              [class.available]="nivel.disponivel && !nivel.emBreve"
              [class.locked]="!nivel.disponivel || nivel.emBreve"
-             [class.completed]="nivel.completado"
-             [style.animation-delay]="(i * 0.1) + 's'">
+             [class.completed]="nivel.completado">
+<!--             [style.animation-delay]="(i * 0.1) + 's'">-->
 
           <div class="level-content">
             <div class="level-icon">
@@ -27,8 +27,8 @@
               <div class="level-status">
                 <div *ngIf="nivel.completado && nivel.pontuacao !== undefined" class="completion-info">
                   <span class="score">{{ nivel.pontuacao }}/{{ nivel.totalPerguntas }}</span>
-                  <span class="percentage">({{ getPercentual(nivel.pontuacao!, nivel.totalPerguntas) }}%)</span>
-                  <span class="status-icon" [innerHTML]="getStatusIcon(nivel.pontuacao!, nivel.totalPerguntas)"></span>
+<!--                  <span class="percentage">({{ getPercentual(nivel.pontuacao!, nivel.totalPerguntas) }}%)</span>-->
+<!--                  <span class="status-icon" [innerHTML]="getStatusIcon(nivel.pontuacao!, nivel.totalPerguntas)"></span>-->
                 </div>
 
                 <div *ngIf="!nivel.completado && nivel.disponivel && !nivel.emBreve" class="level-stats">
@@ -128,16 +128,16 @@
 
             <div class="disclaimer">
               <div class="disclaimer-content">
-                  <strong>Aviso:</strong> Este projeto foi desenvolvido por uma pessoa não profissional em LIBRAS.
-                  O conteúdo pode conter imprecisões. Para aprendizado oficial, consulte profissionais qualificados.
-                </div>
+                <strong>Aviso:</strong> Este projeto foi desenvolvido por uma pessoa não profissional em LIBRAS.
+                O conteúdo pode conter imprecisões. Para aprendizado oficial, consulte profissionais qualificados.
+              </div>
 
 
 
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>

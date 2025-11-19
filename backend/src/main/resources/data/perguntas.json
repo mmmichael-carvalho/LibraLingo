@@ -123,7 +123,7 @@
     "prompt": "Idade",
     "indiceCorreto": 1,
     "opcoes": [
-      {"texto": null, "imagemUrl": "/images/nivel2/gemini2.png"},
+      {"texto": null, "imagemUrl": "/images/null/mae.png"},
       {"texto": null, "imagemUrl": "/images/nivel2/idade2.png"},
       {"texto": null, "imagemUrl": "/images/nivel2/cinema2.png"},
       {"texto": null, "imagemUrl": "/images/nivel2/cafe2.png"}

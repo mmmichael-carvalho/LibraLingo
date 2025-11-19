@@ -1,6 +1,6 @@
 .main-container {
   min-height: 100vh;
-  background: #1a202c;
+  background: #0a0e1a;
   display: flex;
   flex-direction: column;
 }
@@ -47,15 +47,16 @@
 }
 
 .level-item {
-  background: #2d3748;
+  background: #1a1f2e;
+  border: 1px solid #2a3142;
   border-radius: 12px;
   padding: 20px;
   transition: all 0.3s ease;
   position: relative;
   min-height: 80px;
   border: 1px solid #4a5568;
-  animation: slideInLeft 0.6s ease-out;
-  animation-fill-mode: both;
+//   animation: slideInLeft 0.6s ease-out;
+//   animation-fill-mode: both;
 }
 
 .level-item.available:hover {
@@ -93,10 +94,10 @@
 }
 
 
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+// @keyframes slideInLeft {
+//   from { opacity: 0; transform: translateY(20px); }
+//   to { opacity: 1; transform: translateY(0); }
+// }
 
 .level-content {
   display: flex;
@@ -249,11 +250,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.logo-circle:hover {
-  transform: scale(1.05);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
 
 .logo-hands {
   font-size: 4rem;
@@ -302,7 +298,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+//   transition: all 0.3s ease;
   cursor: pointer;
   width: 100%;
 }
@@ -310,7 +306,7 @@
 .info-card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(49, 130, 206, 0.3);
-  transform: translateY(-1px);
+//   transform: translateY(-1px);
 }
 
 .info-card.expanded {
@@ -344,7 +340,7 @@
 .card-arrow {
   color: #63B3ED;
   font-size: 0.9rem;
-  transition: transform 0.3s ease;
+//   transition: transform 0.3s ease;
   min-width: 20px;
   text-align: center;
 }
@@ -356,7 +352,7 @@
 .card-content {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.4s ease;
+//   transition: all 0.4s ease;
   padding: 0 20px;
   color: #A0AEC0;
   font-size: 0.9rem;

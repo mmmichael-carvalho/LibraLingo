@@ -57,7 +57,7 @@ export class LevelListComponent implements OnInit, OnDestroy {
 
   private atualizarDados(): void {
     this.niveis = this.sessionService.getNiveisComStatus();
-    this.estatisticas = this.sessionService.getEstatisticas();
+//     this.estatisticas = this.sessionService.getEstatisticas();
   }
 
   public getPercentual(acertos: number, total: number): number {
