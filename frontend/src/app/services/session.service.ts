@@ -7,8 +7,7 @@ export interface NivelProgresso {
   totalPerguntas: number;
   completado: boolean;
   desbloqueado: boolean;
-//   dataCompletado?: string;
-//   tentativas?: number;
+
 }
 
 @Injectable({
@@ -39,7 +38,7 @@ export class SessionService {
         totalPerguntas: config.totalPerguntas,
         completado: false,
         desbloqueado: config.numero === 1,
-//         tentativas: 0
+
       });
     });
 
@@ -51,13 +50,12 @@ export class SessionService {
     const nivelAtual = progressoAtual.get(nivel);
 
     if (nivelAtual) {
-//       nivelAtual.tentativas = (nivelAtual.tentativas || 0) + 1;
+
 
 nivelAtual.pontuacao = pontuacao;
 
       if (!nivelAtual.completado) {
         nivelAtual.completado = true;
-//         nivelAtual.dataCompletado = new Date().toISOString();
       }
 
       const passou = pontuacao >= 4;
@@ -80,16 +78,16 @@ nivelAtual.pontuacao = pontuacao;
     return nivelData?.desbloqueado || false;
   }
 
-  public isNivelCompletado(nivel: number): boolean {
-    const progresso = this.progressoSubject.getValue();
-    const nivelData = progresso.get(nivel);
-    return nivelData?.completado || false;
-  }
+//   public isNivelCompletado(nivel: number): boolean {
+//     const progresso = this.progressoSubject.getValue();
+//     const nivelData = progresso.get(nivel);
+//     return nivelData?.completado || false;
+//   }
 
-  public getPontuacaoNivel(nivel: number): number | undefined {
-    const progresso = this.progressoSubject.getValue();
-    return progresso.get(nivel)?.pontuacao;
-  }
+//   public getPontuacaoNivel(nivel: number): number | undefined {
+//     const progresso = this.progressoSubject.getValue();
+//     return progresso.get(nivel)?.pontuacao;
+//   }
 
   public getNiveisComStatus() {
     const progresso = this.progressoSubject.getValue();
@@ -101,31 +99,9 @@ nivelAtual.pontuacao = pontuacao;
         disponivel: progressoNivel?.desbloqueado || false,
         completado: progressoNivel?.completado || false,
         pontuacao: progressoNivel?.pontuacao,
-//         tentativas: progressoNivel?.tentativas || 0,
-//         dataCompletado: progressoNivel?.dataCompletado,
       };
     });
   }
 
-//   public getEstatisticas() {
-//     const progresso = this.progressoSubject.getValue();
-//     const niveisCompletados = Array.from(progresso.values()).filter(n => n.completado);
-//
-//     if (niveisCompletados.length === 0) {
-//       return null;
-//     }
-//
-//     const totalAcertos = niveisCompletados.reduce((sum, n) => sum + (n.pontuacao || 0), 0);
-//     const totalPerguntas = niveisCompletados.reduce((sum, n) => sum + n.totalPerguntas, 0);
-//     const totalTentativas = Array.from(progresso.values()).reduce((sum, n) => sum + (n.tentativas || 0), 0);
 
-//     return {
-//       niveisCompletados: niveisCompletados.length,
-//       totalAcertos,
-//       totalPerguntas,
-//       totalTentativas,
-//       mediaPercentual: Math.round((totalAcertos / totalPerguntas) * 100),
-//       niveisDesbloqueados: Array.from(progresso.values()).filter(n => n.desbloqueado).length
-//     };
-//   }
 }

@@ -27,7 +27,6 @@ export class LevelListComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   niveis: NivelInfo[] = [];
-  estatisticas: any = null;
   expandedCard: number | null = null;
 
   constructor(private sessionService: SessionService) {}
@@ -57,23 +56,5 @@ export class LevelListComponent implements OnInit, OnDestroy {
 
   private atualizarDados(): void {
     this.niveis = this.sessionService.getNiveisComStatus();
-//     this.estatisticas = this.sessionService.getEstatisticas();
   }
-
-  public getPercentual(acertos: number, total: number): number {
-    return Math.round((acertos / total) * 100);
-  }
-
-  public getStatusIcon(acertos: number, total: number): string {
-    const percentual = this.getPercentual(acertos, total);
-    if (percentual >= 80) return '🌟';
-    if (percentual >= 60) return '👍';
-    return '📚';
-  }
-
-//   public resetarProgresso(): void {
-//     if (confirm('Resetar o progresso atual? ')) {
-//       this.sessionService.resetarProgresso();
-//     }
-//   }
 }

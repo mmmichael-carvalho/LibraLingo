@@ -34,8 +34,8 @@ public class QuizController {
         }
 
         String mensagem = acertos >= 4
-                ? String.format("Parabéns! Você acertou %d de %d perguntas!", acertos, respostas.size())
-                : String.format("Você acertou %d de %d. Tente novamente!", acertos, respostas.size());
+                ? String.format("Voce acertou %d de %d perguntas!", acertos, respostas.size())
+                : String.format("Voce acertou %d de %d. Tente novamente!", acertos, respostas.size());
 
         ResultadoQuizDTO resultado = new ResultadoQuizDTO();
         resultado.setPontuacao(acertos);

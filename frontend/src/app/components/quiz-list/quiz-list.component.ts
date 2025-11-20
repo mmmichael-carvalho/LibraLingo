@@ -182,15 +182,6 @@ public readonly BASE_URL = environment.baseUrl;
     }
   }
 
-  getQuestionText(): string {
-    if (!this.currentQuestion) return '';
-
-    if (this.currentQuestion.prompt.length > 1) {
-      return 'Qual o significado dessa sequência de sinais?';
-    } else {
-      return 'Qual o significado deste sinal?';
-    }
-  }
 
   submitQuiz() {
     this.loading = true;

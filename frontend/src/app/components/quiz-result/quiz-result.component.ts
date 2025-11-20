@@ -55,14 +55,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
  `,
   styles: [`
 
-    .questions-summary-simple {
-      margin: 25px 0;
-      padding: 20px;
-      background: #1a202c;
-      border-radius: 8px;
-      border: 1px solid #4a5568;
-    }
-
     .acertos-text {
       color: #a0aec0;
       font-size: 1rem;
@@ -187,102 +179,6 @@ import { ResultadoQuizDTO, RespostaDetalhada } from '../../models';
       border: 1px solid #4a5568;
     }
 
-    .summary-header h3 {
-      color: white;
-      font-size: 1.2rem;
-      margin: 0 0 20px 0;
-      font-weight: 500;
-    }
-
-    .questions-grid {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .question-box {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 2px solid;
-    }
-
-    .question-box.correct {
-      background: rgba(72, 187, 120, 0.1);
-      border-color: #48bb78;
-    }
-
-    .question-box.incorrect {
-      background: rgba(245, 101, 101, 0.1);
-      border-color: #f56565;
-    }
-
-    .question-box:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .question-number {
-      font-size: 0.9rem;
-      color: #a0aec0;
-      font-weight: 600;
-    }
-
-    .question-status {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .question-box.correct .question-status {
-      color: #48bb78;
-    }
-
-    .question-box.incorrect .question-status {
-      color: #f56565;
-    }
-
-    .legend {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px solid #4a5568;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #a0aec0;
-      font-size: 0.9rem;
-    }
-
-    .legend-box {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      border: 2px solid;
-    }
-
-    .legend-box.correct {
-      background: rgba(72, 187, 120, 0.1);
-      border-color: #48bb78;
-    }
-
-    .legend-box.incorrect {
-      background: rgba(245, 101, 101, 0.1);
-      border-color: #f56565;
-    }
-
     .action-buttons {
       display: flex;
       gap: 15px;
@@ -377,15 +273,6 @@ getQuestoesAcertadas(): string {
   return acertos.join(', ');
 }
 
-  get totalAcertos(): number {
-    if (!this.respostasDetalhadas) return 0;
-    return this.respostasDetalhadas.filter(r => r.acertou).length;
-  }
-
-  get totalErros(): number {
-    if (!this.respostasDetalhadas) return 0;
-    return this.respostasDetalhadas.filter(r => !r.acertou).length;
-  }
 
   get tituloResultado(): string {
     const acertos = this.resultado?.pontuacao || 0;
@@ -396,12 +283,6 @@ getQuestoesAcertadas(): string {
     }
   }
 
-  getTooltip(resposta: RespostaDetalhada, index: number): string {
-    const numero = index + 1;
-    return resposta.acertou
-      ? `Questão ${numero}: Correta ✓`
-      : `Questão ${numero}: Incorreta ✗`;
-  }
 
   voltarNiveis(): void {
     this.router.navigate(['']);

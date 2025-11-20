@@ -153,21 +153,6 @@
   transition: all 0.2s ease;
 }
 
-// .libras-image:hover {
-//   border-color: #3182ce;
-// //   transform: scale(1.02);
-// }
-
-.libras-image.error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fed7e2;
-  color: #742a2a;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 20px;
-}
 
 .question-text {
   margin-bottom: 30px;
@@ -209,11 +194,6 @@
   gap: 12px;
 }
 
-.option-card:hover {
-  border-color: #3182ce;
-  background: #ebf8ff;
-  transform: translateY(-2px);
-}
 
 .option-card.selected {
   border-color: #3182ce;
@@ -269,11 +249,6 @@
   text-align: center;
 }
 
-.image-option-card:hover {
-  border-color: #3182ce;
-  background: #ebf8ff;
-  transform: translateY(-2px);
-}
 
 .image-option-card.selected {
   border-color: #3182ce;
