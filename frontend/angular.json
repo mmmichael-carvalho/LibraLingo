@@ -24,6 +24,7 @@
                 "input": "public",
                 "output": "/"
               },
+              "src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "src/assets",
