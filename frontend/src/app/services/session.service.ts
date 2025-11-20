@@ -78,17 +78,6 @@ nivelAtual.pontuacao = pontuacao;
     return nivelData?.desbloqueado || false;
   }
 
-//   public isNivelCompletado(nivel: number): boolean {
-//     const progresso = this.progressoSubject.getValue();
-//     const nivelData = progresso.get(nivel);
-//     return nivelData?.completado || false;
-//   }
-
-//   public getPontuacaoNivel(nivel: number): number | undefined {
-//     const progresso = this.progressoSubject.getValue();
-//     return progresso.get(nivel)?.pontuacao;
-//   }
-
   public getNiveisComStatus() {
     const progresso = this.progressoSubject.getValue();
 
