@@ -42,13 +42,13 @@ aplicação completa, com arquitetura limpa, API organizada e deploy funcional, 
 real em produção.
 
 ### Tela Inicial - Seleção de Níveis
-![alt text](image-3.png)
+![paginainicial.png](backend%2Fsrc%2Fmain%2Fresources%2Fstatic%2Fimages%2Fnull%2Fpaginainicial.png)
 
 ### Tela de Quiz
-![alt text](image-4.png)
+![telaquiz.png](backend%2Fsrc%2Fmain%2Fresources%2Fstatic%2Fimages%2Fnull%2Ftelaquiz.png)
 
 ### Tela de Resultado
-![alt text](image-5.png)
+![telaresultado.png](backend%2Fsrc%2Fmain%2Fresources%2Fstatic%2Fimages%2Fnull%2Ftelaresultado.png)
 
 ## Executar localmente
 
